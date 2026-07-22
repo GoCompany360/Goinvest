@@ -1,0 +1,14 @@
+COLOQUE AQUI AS IMAGENS DO RESIDENCIAL EINSTEIN
+================================================
+Exporte as imagens (do Canva/Drive) e salve nesta pasta com EXATAMENTE estes nomes:
+
+  einstein-fachada.jpg   -> fachada principal (usada no topo e na seção do projeto)
+  einstein-1.jpg         -> galeria (foto/render 1)
+  einstein-2.jpg         -> galeria 2
+  einstein-3.jpg         -> galeria 3
+  einstein-4.jpg         -> galeria 4
+  einstein-5.jpg         -> galeria 5
+  einstein-6.jpg         -> galeria 6
+
+Formato: .jpg (ou troque a extensao nos arquivos HTML). Largura sugerida: 1600px.
+Enquanto os arquivos nao estiverem aqui, a pagina mostra um espaco reservado no lugar da imagem.

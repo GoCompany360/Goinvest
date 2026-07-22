@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oferta Residencial Einstein — GO Invest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d1f38;--navy2:#12294a;--navy3:#1b335a;--gold:#c9a227;--gold2:#e0c25a;--ice:#cadcfc;--mut:#8ea0bd;--line:rgba(255,255,255,.12);--green:#149484;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--navy);color:#eaf0f8;line-height:1.55;overflow-x:hidden}
+.serif{font-family:'Playfair Display',serif}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+a{color:inherit;text-decoration:none}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:.35s}
+nav.solid{background:rgba(13,31,56,.94);backdrop-filter:blur(10px);padding:10px 0;box-shadow:0 6px 30px rgba(0,0,0,.3)}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:21px;color:#fff}.logo b{font-weight:800;font-style:italic}.logo span{font-weight:500}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:#dbe4f3;font-size:14px;font-weight:500}.nav-links a:hover{color:var(--gold2)}
+.btn{display:inline-block;padding:13px 28px;border-radius:40px;font-weight:700;font-size:14px;transition:.25s;cursor:pointer;border:none}
+.btn-gold{background:var(--gold);color:#12294a}.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+@media(max-width:820px){.nav-links a:not(.btn){display:none}}
+
+.imgslot{position:relative;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#16304f,#0d1f38);border:1px solid var(--line)}
+.imgslot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.imgslot .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mut);font-size:13px;padding:16px;z-index:0}
+
+.hero{position:relative;min-height:96vh;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(135deg,#16304f,#0d1f38)}
+.hero .heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,31,56,.4),rgba(13,31,56,.25) 40%,rgba(13,31,56,.95));z-index:1}
+.hero-c{position:relative;z-index:2;padding:0 0 80px}
+.badge{display:inline-flex;gap:8px;align-items:center;background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.4);color:var(--gold2);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 15px;border-radius:30px;margin-bottom:20px}
+.hero h1{font-size:clamp(42px,8vw,92px);font-weight:800;color:#fff}
+.hero h1 em{color:var(--gold2);font-style:italic}
+.hero .sub{font-size:clamp(16px,2vw,21px);color:var(--ice);max-width:56ch;margin:18px 0 30px;font-weight:300}
+.hero-facts{display:flex;gap:32px;flex-wrap:wrap;margin-top:20px}
+.hf .n{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--gold2)}.hf .l{font-size:12.5px;color:var(--mut)}
+
+section{padding:92px 0}
+.tag{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.title{font-size:clamp(26px,4vw,42px);font-weight:800;color:#fff;max-width:24ch}
+.lead{font-size:17px;color:var(--ice);max-width:64ch;margin-top:16px;font-weight:300}
+.alt{background:linear-gradient(180deg,#0d1f38,#0b1a30)}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,.8,.3,1),transform .8s cubic-bezier(.16,.8,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;margin-top:40px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.chip{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:30px;padding:8px 15px;font-size:13px;color:var(--ice)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+@media(max-width:820px){.cards{grid-template-columns:1fr 1fr}}
+.card{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.3s}
+.card:hover{transform:translateY(-5px);background:rgba(255,255,255,.08)}
+.card .k{color:var(--gold2);font-size:12.5px;font-weight:700;text-transform:uppercase}.card h3{font-size:19px;color:#fff;margin:4px 0}.card p{color:var(--mut);font-size:13px}
+.amen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}@media(max-width:820px){.amen{grid-template-columns:1fr}}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:180px;gap:14px;margin-top:36px}
+.gallery .big{grid-column:span 2;grid-row:span 2}
+@media(max-width:820px){.gallery{grid-template-columns:1fr 1fr}.gallery .big{grid-column:span 2;grid-row:span 1}}
+.mapframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1;filter:grayscale(.2)}
+
+/* calc/deal table */
+.dtable{margin-top:36px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.drow{display:flex;justify-content:space-between;gap:16px;padding:15px 22px;border-bottom:1px solid var(--line);font-size:15px}
+.drow:last-child{border-bottom:none}
+.drow .k{color:var(--ice)}.drow .v{font-weight:700;color:#fff;white-space:nowrap}
+.drow.neg .v{color:#e6a765}
+.drow.total{background:linear-gradient(135deg,#0b5c53,#149484)}
+.drow.total .k,.drow.total .v{color:#fff;font-size:17px;font-weight:800}
+
+.scen{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+@media(max-width:820px){.scen{grid-template-columns:1fr}}
+.sc{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:20px;padding:26px;text-align:center}
+.sc .h{color:var(--gold2);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.sc .big{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;color:#fff;margin:10px 0 2px}
+.sc .sub{color:var(--mut);font-size:13px;margin-bottom:14px}
+.sc ul{list-style:none;font-size:13.5px}.sc li{display:flex;justify-content:space-between;padding:6px 0;border-top:1px dashed var(--line);color:var(--ice)}.sc li b{color:#fff}
+
+/* calculator */
+.calc{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:22px;padding:32px;margin-top:40px}
+.calc .fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+@media(max-width:820px){.calc .fields{grid-template-columns:1fr}}
+.field label{display:block;font-size:13px;color:var(--mut);font-weight:600;margin-bottom:6px}
+.field input,.field select{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:11px;background:rgba(255,255,255,.06);color:#fff;font-size:16px;font-weight:600;font-family:'Montserrat'}
+.field input:focus,.field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.25)}
+.field select option{color:#12294a}
+.calc-out{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+@media(max-width:820px){.calc-out{grid-template-columns:1fr}}
+.co{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center}
+.co.hl{background:linear-gradient(135deg,#0b5c53,#149484);border:none}
+.co .v{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:#fff}.co .l{color:var(--mut);font-size:12.5px;margin-top:6px}.co.hl .l{color:rgba(255,255,255,.85)}
+.disc{font-size:11.5px;color:#66799a;max-width:82ch;margin-top:22px;line-height:1.5}
+
+.cta{background:radial-gradient(900px 500px at 70% 30%,#1b335a,#0d1f38);text-align:center;padding:110px 0}
+.cta h2{font-size:clamp(28px,5vw,52px);font-weight:800;color:#fff}.cta h2 em{color:var(--gold2);font-style:italic}
+.cta p{color:var(--ice);font-size:17px;margin:16px auto 32px;max-width:52ch;font-weight:300}
+footer{background:#0a1729;color:#7f92b0;padding:38px 0;font-size:13px;text-align:center}
+</style>
+<style id="gi-navstyle">
+.gi-nav{position:fixed;top:0;left:0;right:0;height:58px;z-index:9999;display:flex;align-items:center;background:rgba(11,28,51,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1);font-family:'Montserrat',sans-serif}
+.gi-nav .gi-in{max-width:1180px;margin:0 auto;width:100%;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.gi-nav .gi-logo{font-size:18px;color:#fff;letter-spacing:.5px;text-decoration:none}
+.gi-nav .gi-logo b{font-weight:800;font-style:italic}.gi-nav .gi-logo span{font-weight:500}
+.gi-nav .gi-links{display:flex;align-items:center;gap:22px}
+.gi-nav .gi-links a{color:#cadcfc;text-decoration:none;font-size:14px;font-weight:500;transition:.2s;white-space:nowrap}
+.gi-nav .gi-links a:hover{color:#e0c25a}
+.gi-nav .gi-links a.gi-cta{background:#c9a227;color:#12294a;padding:9px 18px;border-radius:30px;font-weight:700}
+.gi-nav .gi-links a.gi-cta:hover{background:#e0c25a}
+.gi-burg{display:none;background:none;border:0;color:#fff;font-size:24px;cursor:pointer;line-height:1}
+body{padding-top:58px !important}
+@media(max-width:900px){
+ .gi-nav .gi-links{position:fixed;top:58px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:rgba(11,28,51,.99);border-bottom:1px solid rgba(255,255,255,.1);max-height:0;overflow:hidden;transition:max-height .35s ease}
+ .gi-nav .gi-links.open{max-height:460px}
+ .gi-nav .gi-links a{padding:15px 22px;border-top:1px solid rgba(255,255,255,.06)}
+ .gi-nav .gi-links a.gi-cta{border-radius:0}
+ .gi-burg{display:block}
+}
+</style>
+</head>
+<body>
+<nav class="gi-nav"><div class="gi-in">
+ <a class="gi-logo" href="index.html"><span>GO</span><b>INVEST</b></a>
+ <button class="gi-burg" aria-label="Menu" onclick="document.getElementById('giLinks').classList.toggle('open')">&#9776;</button>
+ <div class="gi-links" id="giLinks">
+  <a href="index.html">Início</a>
+  <a href="oferta.html">Oferta</a>
+  <a href="como-funciona.html">Como funciona</a>
+  <a href="apresentacao.html">Apresentação</a>
+  <a href="sobre.html">A GO Invest</a>
+  <a href="simulador.html">Simulador</a>
+  <a href="contato.html" class="gi-cta">Contato</a>
+ </div>
+</div></nav>
+
+
+
+
+<header class="hero">
+  <img class="heroimg" src="img/einstein-fachada.jpg" alt="Fachada Residencial Einstein" onerror="this.style.display='none'">
+  <div class="scrim"></div>
+  <div class="wrap hero-c">
+    <div class="badge reveal in">Oferta · SPE 1 · Santa Maria/RS</div>
+    <h1 class="serif reveal in d1">Residencial <em>Einstein</em></h1>
+    <p class="sub reveal in d2">Uma oportunidade de investimento com ativo real, comprado 40% abaixo do valor de mercado. Você entra como sócio; nós cuidamos de tudo.</p>
+    <a href="#simular" class="btn btn-gold reveal in d2">Simular meu investimento</a>
+    <div class="hero-facts reveal in d3">
+      <div class="hf"><div class="n">40%</div><div class="l">de deságio na compra</div></div>
+      <div class="hf"><div class="n">R$ 6.000/m²</div><div class="l">nosso custo (mercado R$ 10.000)</div></div>
+      <div class="hf"><div class="n">Centro</div><div class="l">Santa Maria/RS</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- PROJETO -->
+<section id="projeto">
+  <div class="wrap">
+    <div class="tag reveal">O projeto</div>
+    <h2 class="title serif reveal">Onde o seu dinheiro estará investido.</h2>
+    <div class="grid2">
+      <div>
+        <p class="lead reveal">O Residencial Einstein é um empreendimento de uso misto (residencial e comercial) na região central de Santa Maria/RS — entre as ruas Silva Jardim, dos Andradas e Venâncio Aires. Arquitetura assinada, paisagismo de estúdio e estrutura de lazer completa.</p>
+        <div class="chips reveal d1">
+          <div class="chip">Uso misto: residencial + comercial</div>
+          <div class="chip">Arquitetura: Guilherme Isbrecht</div>
+          <div class="chip">Paisagismo: Thamila Brum Studio</div>
+          <div class="chip">Projeto estrutural: Ronaldo Segala</div>
+        </div>
+      </div>
+      <div class="imgslot reveal d1" style="height:330px"><img src="img/einstein-fachada.jpg" onerror="this.style.display='none'"><div class="ph">[ render da fachada ]</div></div>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="k">Studio / 1 dorm.</div><h3>~68 m²</h3><p>Alta liquidez para locação.</p></div>
+      <div class="card reveal d1"><div class="k">2 dorm.</div><h3>~88 m²</h3><p>Equilíbrio e demanda.</p></div>
+      <div class="card reveal d2"><div class="k">2/3 dorm.</div><h3>~123 m²</h3><p>Plantas amplas.</p></div>
+      <div class="card reveal d3"><div class="k">Comercial</div><h3>térreo</h3><p>Salas e uso misto.</p></div>
+    </div>
+    <div class="amen">
+      <div class="card reveal"><h3>Salão de festas</h3><p>Para celebrar sem sair do prédio.</p></div>
+      <div class="card reveal d1"><h3>Espaço gourmet</h3><p>Ambiente integrado para receber.</p></div>
+      <div class="card reveal d2"><h3>Academia</h3><p>Bem-estar no próprio edifício.</p></div>
+    </div>
+    <div class="gallery">
+      <div class="imgslot big reveal"><img src="img/einstein-1.jpg" onerror="this.style.display='none'"><div class="ph">[ perspectiva ]</div></div>
+      <div class="imgslot reveal d1"><img src="img/einstein-2.jpg" onerror="this.style.display='none'"><div class="ph">[ ambiente ]</div></div>
+      <div class="imgslot reveal d2"><img src="img/einstein-3.jpg" onerror="this.style.display='none'"><div class="ph">[ ambiente ]</div></div>
+      <div class="imgslot reveal"><img src="img/einstein-4.jpg" onerror="this.style.display='none'"><div class="ph">[ ambiente ]</div></div>
+      <div class="imgslot reveal d1"><img src="img/einstein-5.jpg" onerror="this.style.display='none'"><div class="ph">[ ambiente ]</div></div>
+      <div class="imgslot reveal d2"><img src="img/einstein-6.jpg" onerror="this.style.display='none'"><div class="ph">[ ambiente ]</div></div>
+    </div>
+    <div class="grid2" style="margin-top:36px">
+      <div class="imgslot reveal" style="height:320px"><iframe class="mapframe" title="Localização" loading="lazy" src="https://www.google.com/maps?q=Rua+Silva+Jardim,+Centro,+Santa+Maria+-+RS&output=embed"></iframe></div>
+      <div>
+        <div class="tag reveal">Localização</div>
+        <h2 class="title serif reveal" style="font-size:28px">No centro, perto de tudo.</h2>
+        <p class="lead reveal d1">Comércio, serviços, gastronomia e mobilidade a poucos passos — a valorização e a liquidez que só o centro oferece.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERAÇÃO -->
+<section id="operacao" class="alt">
+  <div class="wrap">
+    <div class="tag reveal">A operação · o cálculo estimado</div>
+    <h2 class="title serif reveal">Compramos a R$ 6.000/m². O mercado vale R$ 10.000/m².</h2>
+    <p class="lead reveal d1">A margem começa na compra. Abaixo, o cálculo estimado da operação no horizonte de 24 meses, considerando valorização de 10% ao ano sobre o valor de avaliação e já deduzindo comissão de venda (6%) e IR sobre o ganho de capital (15%).</p>
+    <div class="dtable reveal d1">
+      <div class="drow"><span class="k">Custo de aquisição (833 m² a R$ 6.000/m²)</span><span class="v">R$ 5.000.000</span></div>
+      <div class="drow"><span class="k">Valor de avaliação hoje (R$ 10.000/m²) — deságio de 40%</span><span class="v">R$ 8.333.333</span></div>
+      <div class="drow"><span class="k">Capital da operação (aquisição + 10%)</span><span class="v">R$ 5.500.000</span></div>
+      <div class="drow"><span class="k">Venda estimada em 24 meses (+10% a.a.)</span><span class="v">R$ 10.083.333</span></div>
+      <div class="drow neg"><span class="k">(−) Comissão de venda (6%)</span><span class="v">− R$ 605.000</span></div>
+      <div class="drow neg"><span class="k">(−) IR sobre o ganho de capital (15%)</span><span class="v">− R$ 671.750</span></div>
+      <div class="drow"><span class="k">Resultado líquido da operação</span><span class="v">R$ 8.806.583</span></div>
+      <div class="drow total"><span class="k">Retorno estimado sobre o capital (24 meses)</span><span class="v">+ 60,1%</span></div>
+    </div>
+    <p class="disc reveal">Valores estimativos e ilustrativos, líquidos de comissão e IR, sobre o capital da operação (aquisição + 10% de estruturação). Não constituem promessa de rentabilidade; o resultado real depende da execução e da comercialização. A remuneração de performance da gestora, quando aplicável, incide apenas sobre o que exceder o preço-alvo aprovado.</p>
+  </div>
+</section>
+
+<!-- CENÁRIOS -->
+<section id="cenarios">
+  <div class="wrap">
+    <div class="tag reveal">Cenários de saída</div>
+    <h2 class="title serif reveal">Três horizontes, uma mesma lógica.</h2>
+    <p class="lead reveal d1">Estimativas com valorização de 10% ao ano, líquidas de comissão e IR, sobre o capital da operação.</p>
+    <div class="scen" id="scen"></div>
+    <p class="disc reveal">Cenários ilustrativos, não promessa de retorno.</p>
+  </div>
+</section>
+
+<!-- CALCULADORA -->
+<section id="simular" class="alt">
+  <div class="wrap">
+    <div class="tag reveal">Simule o seu investimento</div>
+    <h2 class="title serif reveal">Quanto o seu aporte pode significar.</h2>
+    <div class="calc reveal d1">
+      <div class="fields">
+        <div class="field"><label>Seu aporte (R$)</label><input id="aporte" type="text" inputmode="numeric" value="50.000"></div>
+        <div class="field"><label>Horizonte</label><select id="horizonte"><option value="12">12 meses</option><option value="24" selected>24 meses</option><option value="36">36 meses</option></select></div>
+        <div class="field"><label>Valorização ao ano (%)</label><input id="valoriz" type="number" step="0.5" value="10"></div>
+      </div>
+      <div class="calc-out">
+        <div class="co"><div class="v" id="oInvest">R$ 50.000</div><div class="l">seu aporte</div></div>
+        <div class="co"><div class="v" id="oLucro">—</div><div class="l">seu lucro estimado</div></div>
+        <div class="co hl"><div class="v" id="oRecebe">—</div><div class="l">você recebe (aporte + lucro)</div></div>
+      </div>
+      <div class="calc-out" style="margin-top:16px">
+        <div class="co"><div class="v" id="oRet">—</div><div class="l">retorno total no período</div></div>
+        <div class="co"><div class="v" id="oAA">—</div><div class="l">equivalente ao ano</div></div>
+        <div class="co"><div class="v" id="oAM">—</div><div class="l">equivalente ao mês</div></div>
+      </div>
+    </div>
+    <p class="disc reveal">Simulação proporcional ao capital da operação (R$ 5.500.000). Estimativa líquida de comissão (6%) e IR (15%), ilustrativa e sem garantia de rentabilidade. A remuneração de performance da gestora, quando houver venda acima do preço-alvo, pode reduzir o resultado.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contato" class="cta">
+  <div class="wrap">
+    <h2 class="serif reveal">Faça parte da <em>SPE 1</em>.</h2>
+    <p class="reveal d1">Vagas limitadas ao tamanho desta operação. Que tal conversarmos sobre o seu momento?</p>
+    <div class="reveal d1"><a href="mailto:contato@gocompany360.com.br?subject=Quero%20participar%20da%20SPE%201%20-%20Einstein" class="btn btn-gold">Quero entender como participar</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo" style="font-size:18px"><span>GO</span><b>INVEST</b></div>
+  <p style="margin-top:8px;max-width:80ch;margin-left:auto;margin-right:auto">Residencial Einstein · SPE 1 · Santa Maria/RS. Material informativo; não constitui oferta pública, recomendação ou promessa de rentabilidade. Cenários ilustrativos. A participação observa o Estatuto, o Termo de Adesão e o Acordo de Acionistas e a regulação aplicável.</p>
+</footer>
+
+<script>
+const COMPRA=5000000, AVAL=5000000/6000*10000, CAPTADO=5500000, COM=0.06, IR=0.15;
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+const pct=v=>(v*100).toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'%';
+function num(id){let s=document.getElementById(id).value.replace(/\./g,'').replace(',','.').replace(/[^0-9.]/g,'');return parseFloat(s)||0;}
+
+function fator(meses,val){
+  const anos=meses/12;
+  const venda=AVAL*Math.pow(1+val,anos);
+  const com=venda*COM;
+  const ganho=venda-com-COMPRA;
+  const ir=Math.max(0,ganho)*IR;
+  const liq=venda-com-ir;
+  return liq/CAPTADO; // multiplicador do aporte
+}
+
+// cenários
+const scen=[[12,"12 meses"],[24,"24 meses"],[36,"36 meses"]];
+document.getElementById('scen').innerHTML=scen.map(([m,lbl],i)=>{
+  const f=fator(m,0.10), ret=f-1, aa=Math.pow(1+ret,12/m)-1;
+  return `<div class="sc reveal ${i?('d'+i):''}"><div class="h">Venda em ${lbl}</div><div class="big">+${pct(ret)}</div><div class="sub">sobre o capital · ~${pct(aa)} a.a.</div>
+    <ul><li>Cada R$ 10.000 viram <b>${brl(10000*f)}</b></li><li>Valorização <b>10% a.a.</b></li></ul></div>`;
+}).join('');
+
+// calculadora
+function calc(){
+  const aporte=num('aporte');
+  const meses=parseInt(document.getElementById('horizonte').value);
+  const val=(parseFloat(document.getElementById('valoriz').value.replace(',','.'))||0)/100;
+  const f=fator(meses,val);
+  const recebe=aporte*f, lucro=recebe-aporte, ret=f-1;
+  const aa=Math.pow(1+ret,12/meses)-1, am=Math.pow(1+ret,1/meses)-1;
+  document.getElementById('oInvest').textContent=brl(aporte);
+  document.getElementById('oLucro').textContent=brl(lucro);
+  document.getElementById('oRecebe').textContent=brl(recebe);
+  document.getElementById('oRet').textContent=pct(ret);
+  document.getElementById('oAA').textContent=pct(aa);
+  document.getElementById('oAM').textContent=pct(am);
+}
+const ap=document.getElementById('aporte');
+ap.addEventListener('input',()=>{let r=ap.value.replace(/\D/g,'');ap.value=r?parseInt(r).toLocaleString('pt-BR'):'0';calc();});
+document.getElementById('horizonte').addEventListener('input',calc);
+document.getElementById('valoriz').addEventListener('input',calc);
+calc();
+
+// reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+function obs(){document.querySelectorAll('.reveal').forEach(el=>{if(!el.classList.contains('in'))io.observe(el);});}
+obs();
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40));
+</script>
+</body>
+</html>

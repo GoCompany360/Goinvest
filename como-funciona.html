@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GO Invest — Como funciona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d1f38;--navy2:#12294a;--navy3:#1b335a;--gold:#c9a227;--gold2:#e0c25a;--ice:#cadcfc;--mut:#8ea0bd;--line:rgba(255,255,255,.12);}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:radial-gradient(1100px 600px at 80% -10%,#1b335a 0%,#12294a 45%,#0d1f38 100%);color:#eaf0f8;line-height:1.55;min-height:100vh;overflow-x:hidden}
+.serif{font-family:'Playfair Display',serif}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+header{text-align:center;padding:76px 24px 30px;position:relative}
+header .kicker{display:inline-flex;align-items:center;gap:10px;color:var(--gold2);font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+header .kicker::before,header .kicker::after{content:"";width:26px;height:2px;background:var(--gold)}
+header h1{font-size:clamp(30px,5vw,52px);font-weight:800;color:#fff}
+header h1 em{color:var(--gold2);font-style:italic}
+header p{color:var(--ice);font-size:clamp(16px,2vw,19px);max-width:60ch;margin:16px auto 0;font-weight:300}
+.brand{font-size:22px;color:#fff;margin-bottom:26px}.brand b{font-weight:800;font-style:italic}.brand span{font-weight:500}
+
+/* timeline */
+.flow{position:relative;padding:40px 0 20px}
+.flow::before{content:"";position:absolute;left:50%;top:0;bottom:90px;width:3px;transform:translateX(-50%);
+  background:linear-gradient(var(--gold),rgba(201,162,39,.15));border-radius:3px}
+.step{position:relative;width:50%;padding:22px 44px;margin:6px 0;opacity:0;transform:translateY(40px);transition:opacity .7s cubic-bezier(.16,.8,.3,1),transform .7s cubic-bezier(.16,.8,.3,1)}
+.step.in{opacity:1;transform:none}
+.step:nth-child(odd){left:0;text-align:right}
+.step:nth-child(even){left:50%;text-align:left}
+.card{position:relative;display:inline-block;text-align:left;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:22px 24px;max-width:400px;backdrop-filter:blur(6px);transition:.3s}
+.card:hover{transform:translateY(-5px);background:rgba(255,255,255,.09);box-shadow:0 18px 44px rgba(0,0,0,.3)}
+.card .ic{font-size:26px;margin-bottom:8px;display:block}
+.card h3{font-size:19px;color:#fff;margin-bottom:6px}
+.card p{color:var(--mut);font-size:14px}
+.card .tag{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--gold2);background:rgba(201,162,39,.14);border:1px solid rgba(201,162,39,.4);padding:5px 12px;border-radius:20px}
+/* number node on the center line */
+.node{position:absolute;top:30px;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#12294a;
+  display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:800;font-size:22px;
+  box-shadow:0 0 0 6px rgba(13,31,56,1),0 0 0 8px rgba(201,162,39,.35);z-index:2}
+.step:nth-child(odd) .node{right:-26px}
+.step:nth-child(even) .node{left:-26px}
+
+/* final */
+.final{position:relative;text-align:center;margin:20px auto 0;max-width:640px;background:linear-gradient(135deg,#0b5c53,#149484);border-radius:22px;padding:34px 30px;opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
+.final.in{opacity:1;transform:none}
+.final .ic{font-size:34px}
+.final h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,34px);color:#fff;margin:8px 0 6px}
+.final p{color:rgba(255,255,255,.9);font-size:16px}
+
+footer{text-align:center;padding:50px 24px 44px;color:var(--mut);font-size:12px}
+footer .disc{max-width:70ch;margin:10px auto 0;color:#66799a;line-height:1.5}
+
+@media(max-width:760px){
+  .flow::before{left:26px;transform:none}
+  .step,.step:nth-child(odd),.step:nth-child(even){width:100%;left:0;text-align:left;padding:16px 0 16px 64px}
+  .step:nth-child(odd) .node,.step:nth-child(even) .node{left:0;right:auto}
+  .card{max-width:100%}
+}
+</style>
+<style id="gi-navstyle">
+.gi-nav{position:fixed;top:0;left:0;right:0;height:58px;z-index:9999;display:flex;align-items:center;background:rgba(11,28,51,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1);font-family:'Montserrat',sans-serif}
+.gi-nav .gi-in{max-width:1180px;margin:0 auto;width:100%;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.gi-nav .gi-logo{font-size:18px;color:#fff;letter-spacing:.5px;text-decoration:none}
+.gi-nav .gi-logo b{font-weight:800;font-style:italic}.gi-nav .gi-logo span{font-weight:500}
+.gi-nav .gi-links{display:flex;align-items:center;gap:22px}
+.gi-nav .gi-links a{color:#cadcfc;text-decoration:none;font-size:14px;font-weight:500;transition:.2s;white-space:nowrap}
+.gi-nav .gi-links a:hover{color:#e0c25a}
+.gi-nav .gi-links a.gi-cta{background:#c9a227;color:#12294a;padding:9px 18px;border-radius:30px;font-weight:700}
+.gi-nav .gi-links a.gi-cta:hover{background:#e0c25a}
+.gi-burg{display:none;background:none;border:0;color:#fff;font-size:24px;cursor:pointer;line-height:1}
+body{padding-top:58px !important}
+@media(max-width:900px){
+ .gi-nav .gi-links{position:fixed;top:58px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:rgba(11,28,51,.99);border-bottom:1px solid rgba(255,255,255,.1);max-height:0;overflow:hidden;transition:max-height .35s ease}
+ .gi-nav .gi-links.open{max-height:460px}
+ .gi-nav .gi-links a{padding:15px 22px;border-top:1px solid rgba(255,255,255,.06)}
+ .gi-nav .gi-links a.gi-cta{border-radius:0}
+ .gi-burg{display:block}
+}
+</style>
+</head>
+<body>
+<nav class="gi-nav"><div class="gi-in">
+ <a class="gi-logo" href="index.html"><span>GO</span><b>INVEST</b></a>
+ <button class="gi-burg" aria-label="Menu" onclick="document.getElementById('giLinks').classList.toggle('open')">&#9776;</button>
+ <div class="gi-links" id="giLinks">
+  <a href="index.html">Início</a>
+  <a href="oferta.html">Oferta</a>
+  <a href="como-funciona.html">Como funciona</a>
+  <a href="apresentacao.html">Apresentação</a>
+  <a href="sobre.html">A GO Invest</a>
+  <a href="simulador.html">Simulador</a>
+  <a href="contato.html" class="gi-cta">Contato</a>
+ </div>
+</div></nav>
+
+
+<header>
+  <div class="brand"><span>GO</span><b>INVEST</b></div>
+  <div class="kicker">Como funciona</div>
+  <h1 class="serif">Do ativo com deságio ao <em>lucro distribuído</em></h1>
+  <p>Um modelo simples e transparente: transformamos imóveis comprados abaixo do mercado em patrimônio real, com você como sócio. Veja o passo a passo.</p>
+</header>
+
+<div class="wrap">
+  <div class="flow" id="flow">
+
+    <div class="step">
+      <div class="node">1</div>
+      <div class="card">
+        <span class="ic">🔍</span>
+        <h3>Identificamos ativos de oportunidade</h3>
+        <p>Imóveis residenciais ou comerciais — prontos, em construção ou na planta — com preço de oportunidade.</p>
+        <span class="tag">30% ou mais abaixo do mercado</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">2</div>
+      <div class="card">
+        <span class="ic">🏛️</span>
+        <h3>Integralizamos o imóvel na SPE</h3>
+        <p>O ativo entra em uma Sociedade de Propósito Específico, com patrimônio isolado e dedicado à operação.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">3</div>
+      <div class="card">
+        <span class="ic">🧩</span>
+        <h3>Transformamos o ativo em ações</h3>
+        <p>O valor do imóvel vira ações da SPE — cada R$ 1,00 corresponde a 1 ação, lastreada no patrimônio real.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">4</div>
+      <div class="card">
+        <span class="ic">🤝</span>
+        <h3>Vendemos as ações aos investidores</h3>
+        <p>Você adquire ações e passa a ser sócio do patrimônio — na proporção do seu aporte.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">5</div>
+      <div class="card">
+        <span class="ic">🛠️</span>
+        <h3>Fazemos a curadoria e cuidamos do ativo</h3>
+        <p>Jurídico, regularização, reposicionamento e toda a gestão ficam conosco. Você não administra nada.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">6</div>
+      <div class="card">
+        <span class="ic">🏷️</span>
+        <h3>Colocamos o imóvel no mercado</h3>
+        <p>Nos formatos que melhor rentabilizam o ativo: aluguel, venda à vista, parcelada ou financiamento direto.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">7</div>
+      <div class="card">
+        <span class="ic">💰</span>
+        <h3>Pagamos as despesas e distribuímos o lucro</h3>
+        <p>Deduzidos os custos da operação, o resultado é distribuído aos investidores na proporção da participação.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="final" id="final">
+    <span class="ic">🏆</span>
+    <h2 class="serif">Você recebe o resultado</h2>
+    <p>Patrimônio real, gestão profissional e transparência — do começo ao fim.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="brand" style="font-size:18px;color:#fff"><span>GO</span><b>INVEST</b></div>
+  <div class="disc">Fluxo ilustrativo do modelo de operação. Não constitui oferta ou promessa de rentabilidade; a participação e a captação observam os documentos próprios (Estatuto, Termo de Adesão e Acordo de Acionistas) e a regulação aplicável.</div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.2});
+document.querySelectorAll('.step, #final').forEach((el,i)=>{el.style.transitionDelay=(i%2? .05:.0)+'s';io.observe(el);});
+</script>
+</body>
+</html>

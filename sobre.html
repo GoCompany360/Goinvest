@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>A GO Invest — Sobre e FAQ</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=Playfair+Display:ital,wght@0,700;0,800&display=swap" rel="stylesheet"><style>
+:root{--navy:#0b1c33;--navy2:#12294a;--gold:#c9a227;--gold2:#e0c25a;--ice:#cadcfc;--mut:#8ea0bd;--line:rgba(255,255,255,.12)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--navy);color:#eef2f9;line-height:1.6;overflow-x:hidden}
+.serif{font-family:'Playfair Display',serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 26px}
+.hero{text-align:center;padding:70px 24px 30px}
+.kick{color:var(--gold2);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,54px);font-weight:800;color:#fff;margin:14px 0}
+.hero h1 em{color:var(--gold2);font-style:italic}
+.hero p{color:var(--ice);font-size:clamp(16px,2vw,19px);max-width:62ch;margin:0 auto;font-weight:300}
+section{padding:44px 0}
+h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3.4vw,36px);color:#fff;margin-bottom:8px}
+.sub{color:var(--mut);margin-bottom:26px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:760px){.cards{grid-template-columns:1fr}}
+.c{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:16px;padding:24px}
+.c h3{color:#fff;font-size:18px;margin-bottom:8px}.c p{color:var(--mut);font-size:14px}
+details{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+summary{cursor:pointer;padding:18px 22px;font-weight:600;color:#fff;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:22px;color:var(--gold2);font-size:22px;transition:.2s}
+details[open] summary::after{transform:rotate(45deg)}
+details .a{padding:0 22px 20px;color:var(--ice);font-size:15px}
+.cta{text-align:center;padding:60px 24px}
+.btn{display:inline-block;padding:15px 34px;border-radius:40px;background:var(--gold);color:#12294a;font-weight:700;transition:.25s;text-decoration:none}
+.btn:hover{background:var(--gold2);transform:translateY(-2px)}
+footer{text-align:center;padding:44px 24px;color:#66799a;font-size:12px;border-top:1px solid var(--line);margin-top:20px}
+footer .disc{max-width:80ch;margin:0 auto;line-height:1.5}
+</style><style id="gi-navstyle">
+.gi-nav{position:fixed;top:0;left:0;right:0;height:58px;z-index:9999;display:flex;align-items:center;background:rgba(11,28,51,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1);font-family:'Montserrat',sans-serif}
+.gi-nav .gi-in{max-width:1180px;margin:0 auto;width:100%;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.gi-nav .gi-logo{font-size:18px;color:#fff;letter-spacing:.5px;text-decoration:none}
+.gi-nav .gi-logo b{font-weight:800;font-style:italic}.gi-nav .gi-logo span{font-weight:500}
+.gi-nav .gi-links{display:flex;align-items:center;gap:22px}
+.gi-nav .gi-links a{color:#cadcfc;text-decoration:none;font-size:14px;font-weight:500;transition:.2s;white-space:nowrap}
+.gi-nav .gi-links a:hover{color:#e0c25a}
+.gi-nav .gi-links a.gi-cta{background:#c9a227;color:#12294a;padding:9px 18px;border-radius:30px;font-weight:700}
+.gi-nav .gi-links a.gi-cta:hover{background:#e0c25a}
+.gi-burg{display:none;background:none;border:0;color:#fff;font-size:24px;cursor:pointer;line-height:1}
+body{padding-top:58px !important}
+@media(max-width:900px){
+ .gi-nav .gi-links{position:fixed;top:58px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:rgba(11,28,51,.99);border-bottom:1px solid rgba(255,255,255,.1);max-height:0;overflow:hidden;transition:max-height .35s ease}
+ .gi-nav .gi-links.open{max-height:460px}
+ .gi-nav .gi-links a{padding:15px 22px;border-top:1px solid rgba(255,255,255,.06)}
+ .gi-nav .gi-links a.gi-cta{border-radius:0}
+ .gi-burg{display:block}
+}
+</style></head><body><nav class="gi-nav"><div class="gi-in">
+ <a class="gi-logo" href="index.html"><span>GO</span><b>INVEST</b></a>
+ <button class="gi-burg" aria-label="Menu" onclick="document.getElementById('giLinks').classList.toggle('open')">&#9776;</button>
+ <div class="gi-links" id="giLinks">
+  <a href="index.html">Início</a>
+  <a href="oferta.html">Oferta</a>
+  <a href="como-funciona.html">Como funciona</a>
+  <a href="apresentacao.html">Apresentação</a>
+  <a href="sobre.html">A GO Invest</a>
+  <a href="simulador.html">Simulador</a>
+  <a href="contato.html" class="gi-cta">Contato</a>
+ </div>
+</div></nav>
+
+<div class="hero">
+ <div class="kick">A GO Invest</div>
+ <h1 class="serif">Patrimônio real, <em>gestão profissional</em>, você como sócio.</h1>
+ <p>Existimos para transformar capital em ativos reais: imóveis adquiridos abaixo do valor de mercado, reposicionados e vendidos ou locados — com governança, transparência e você participando dos resultados como acionista.</p>
+</div>
+
+<div class="wrap">
+ <section>
+  <h2>Nossa filosofia</h2>
+  <div class="sub">Três princípios guiam cada operação.</div>
+  <div class="cards">
+   <div class="c"><h3>O lucro começa na compra</h3><p>Adquirimos com margem de segurança (deságio de 30% a 50%), criando proteção antes mesmo da valorização.</p></div>
+   <div class="c"><h3>Ativo real, tangível</h3><p>Tijolo é escasso, acompanha a inflação e tem demanda estrutural. Patrimônio que se toca e se transmite.</p></div>
+   <div class="c"><h3>Você é sócio, não credor</h3><p>Cada operação vive em uma SPE (S.A.) com CNPJ próprio. Você detém ações lastreadas no ativo.</p></div>
+  </div>
+ </section>
+
+ <section>
+  <h2>Como operamos</h2>
+  <div class="sub">Do ativo com deságio ao resultado distribuído — o trabalho é nosso.</div>
+  <div class="cards">
+   <div class="c"><h3>SPE dedicada</h3><p>Uma empresa criada só para aquela operação, com patrimônio isolado e escopo definido.</p></div>
+   <div class="c"><h3>Curadoria e execução</h3><p>Seleção, aquisição, reposicionamento e comercialização conduzidos pela GO Invest.</p></div>
+   <div class="c"><h3>Você só colhe</h3><p>Recompra, locação até a venda, venda financiada ou uso do crédito para adquirir uma unidade.</p></div>
+  </div>
+ </section>
+
+ <section>
+  <h2>Governança e transparência</h2>
+  <div class="sub">Regras claras, prestação de contas e alinhamento de interesses.</div>
+  <div class="cards">
+   <div class="c"><h3>Conselho</h3><p>Acompanhamento das operações, com informação periódica e auditoria semestral.</p></div>
+   <div class="c"><h3>Prestação de contas</h3><p>Fluxo de caixa, notas fiscais, contratos, extratos, DRE e balanço à disposição dos acionistas.</p></div>
+   <div class="c"><h3>Documentos</h3><p>Estatuto Social, Termo de Adesão e Acordo de Acionistas regem direitos, deveres e saídas.</p></div>
+  </div>
+ </section>
+
+ <section>
+  <h2>Perguntas frequentes</h2>
+  <div class="sub">O essencial para decidir com clareza.</div>
+<details><summary>Eu sou sócio ou estou emprestando dinheiro?</summary><div class="a">Você é <b>acionista</b> da SPE (uma S.A.), não credor. Seus resultados acompanham o desempenho do ativo — não há promessa de rentabilidade fixa.</div></details><details><summary>Qual o aporte mínimo?</summary><div class="a">A partir de R$ 1.000, com possibilidade de parcelamento, conforme as condições de cada rodada descritas no Termo de Adesão.</div></details><details><summary>Como e quando eu recebo?</summary><div class="a">Na saída da operação (venda do ativo) ou conforme a modalidade escolhida: recompra, locação até a venda, venda financiada (você recebe as parcelas) ou uso do crédito para adquirir uma unidade.</div></details><details><summary>Por que comprar com deságio protege?</summary><div class="a">Entrar de 30% a 50% abaixo do valor de mercado cria uma folga de segurança: protege nos cenários adversos e amplia o ganho nos favoráveis.</div></details><details><summary>E a liquidez?</summary><div class="a">Ativo real não tem resgate diário — e é isso que o protege dos sustos de curto prazo. O horizonte é definido e as saídas são planejadas desde o início.</div></details><details><summary>Quais são os riscos?</summary><div class="a">Não existe retorno sem risco. Tratamos o risco com margem de segurança na compra, lastro real, horizonte definido, múltiplas saídas e gestão profissional com governança e jurídico.</div></details><details><summary>Como funciona a remuneração da GO Invest?</summary><div class="a">Modelo alinhado ao resultado: taxa de comercialização, fundo de despesas na própria SPE e performance apenas sobre o que exceder o preço-alvo aprovado. Tudo detalhado nos documentos.</div></details>
+ </section>
+</div>
+
+<div class="cta">
+ <div class="serif" style="font-size:26px;color:#fff;margin-bottom:16px">Quer conversar sobre a próxima operação?</div>
+ <a class="btn" href="contato.html">Falar com um especialista</a>
+</div>
+
+<footer>
+ <div class="disc">Material informativo; não constitui oferta pública, recomendação ou promessa de rentabilidade. Cenários ilustrativos. A participação observa o Estatuto Social, o Termo de Adesão e o Acordo de Acionistas e a regulação aplicável. © 2026 GO Invest.</div>
+</footer>
+</body></html>

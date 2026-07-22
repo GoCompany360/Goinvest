@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GO Invest — Patrimônio que gera legado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=Playfair+Display:ital,wght@0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0b1c33;--navy2:#12294a;--navy3:#1b335a;--gold:#c9a227;--gold2:#e0c25a;--ice:#cadcfc;--mut:#8ea0bd;--line:rgba(255,255,255,.12);}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--navy);color:#eef2f9;line-height:1.55;overflow-x:hidden;min-height:100vh}
+.serif{font-family:'Playfair Display',serif}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+a{color:inherit;text-decoration:none}
+
+header{position:relative;text-align:center;padding:90px 24px 40px;overflow:hidden}
+header::before,header::after{content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;z-index:0;animation:fl 15s ease-in-out infinite}
+header::before{width:440px;height:440px;background:rgba(201,162,39,.25);top:-160px;right:8%}
+header::after{width:360px;height:360px;background:rgba(31,78,120,.6);top:-120px;left:4%;animation-delay:-7s}
+@keyframes fl{0%,100%{transform:translate(0,0)}50%{transform:translate(-22px,26px)}}
+.brand{position:relative;z-index:1;font-size:44px;color:#fff;letter-spacing:.5px;margin-bottom:14px}.brand b{font-weight:800;font-style:italic}.brand span{font-weight:500}
+header h1{position:relative;z-index:1;font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:800;color:#fff;max-width:20ch;margin:0 auto}
+header h1 em{color:var(--gold2);font-style:italic}
+header p{position:relative;z-index:1;color:var(--ice);font-size:clamp(16px,2vw,19px);max-width:56ch;margin:18px auto 0;font-weight:300}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:30px 0 20px}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+.card{position:relative;display:block;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:20px;padding:30px 26px;transition:.3s;overflow:hidden;opacity:0;transform:translateY(30px)}
+.card.in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.16,.8,.3,1),transform .7s cubic-bezier(.16,.8,.3,1)}
+.card:hover{transform:translateY(-6px);background:rgba(255,255,255,.09);box-shadow:0 20px 46px rgba(0,0,0,.3);border-color:rgba(201,162,39,.4)}
+.card .n{position:absolute;top:14px;right:22px;font-family:'Playfair Display',serif;font-size:46px;color:rgba(255,255,255,.06);font-weight:800}
+.card .ic{font-size:28px;margin-bottom:12px}
+.card h3{font-size:20px;color:#fff;margin-bottom:8px}
+.card p{color:var(--mut);font-size:14px;min-height:44px}
+.card .go{display:inline-flex;align-items:center;gap:8px;margin-top:16px;color:var(--gold2);font-weight:700;font-size:14px}
+.card.feature{grid-column:span 3;background:linear-gradient(135deg,#0b5c53,#149484);border:none}
+@media(max-width:900px){.card.feature{grid-column:span 2}}
+@media(max-width:620px){.card.feature{grid-column:span 1}}
+.card.feature p{color:rgba(255,255,255,.9)}.card.feature .go{color:#fff}
+
+.cta{text-align:center;padding:70px 24px 30px}
+.btn{display:inline-block;padding:15px 34px;border-radius:40px;background:var(--gold);color:#12294a;font-weight:700;font-size:15px;transition:.25s}
+.btn:hover{background:var(--gold2);transform:translateY(-2px)}
+footer{text-align:center;padding:46px 24px;color:#66799a;font-size:12px;border-top:1px solid var(--line);margin-top:30px}
+footer .disc{max-width:80ch;margin:10px auto 0;line-height:1.5}
+</style>
+<style id="gi-navstyle">
+.gi-nav{position:fixed;top:0;left:0;right:0;height:58px;z-index:9999;display:flex;align-items:center;background:rgba(11,28,51,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1);font-family:'Montserrat',sans-serif}
+.gi-nav .gi-in{max-width:1180px;margin:0 auto;width:100%;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.gi-nav .gi-logo{font-size:18px;color:#fff;letter-spacing:.5px;text-decoration:none}
+.gi-nav .gi-logo b{font-weight:800;font-style:italic}.gi-nav .gi-logo span{font-weight:500}
+.gi-nav .gi-links{display:flex;align-items:center;gap:22px}
+.gi-nav .gi-links a{color:#cadcfc;text-decoration:none;font-size:14px;font-weight:500;transition:.2s;white-space:nowrap}
+.gi-nav .gi-links a:hover{color:#e0c25a}
+.gi-nav .gi-links a.gi-cta{background:#c9a227;color:#12294a;padding:9px 18px;border-radius:30px;font-weight:700}
+.gi-nav .gi-links a.gi-cta:hover{background:#e0c25a}
+.gi-burg{display:none;background:none;border:0;color:#fff;font-size:24px;cursor:pointer;line-height:1}
+body{padding-top:58px !important}
+@media(max-width:900px){
+ .gi-nav .gi-links{position:fixed;top:58px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:rgba(11,28,51,.99);border-bottom:1px solid rgba(255,255,255,.1);max-height:0;overflow:hidden;transition:max-height .35s ease}
+ .gi-nav .gi-links.open{max-height:460px}
+ .gi-nav .gi-links a{padding:15px 22px;border-top:1px solid rgba(255,255,255,.06)}
+ .gi-nav .gi-links a.gi-cta{border-radius:0}
+ .gi-burg{display:block}
+}
+</style>
+</head>
+<body>
+<nav class="gi-nav"><div class="gi-in">
+ <a class="gi-logo" href="index.html"><span>GO</span><b>INVEST</b></a>
+ <button class="gi-burg" aria-label="Menu" onclick="document.getElementById('giLinks').classList.toggle('open')">&#9776;</button>
+ <div class="gi-links" id="giLinks">
+  <a href="index.html">Início</a>
+  <a href="oferta.html">Oferta</a>
+  <a href="como-funciona.html">Como funciona</a>
+  <a href="apresentacao.html">Apresentação</a>
+  <a href="sobre.html">A GO Invest</a>
+  <a href="simulador.html">Simulador</a>
+  <a href="contato.html" class="gi-cta">Contato</a>
+ </div>
+</div></nav>
+
+
+<header>
+  <div class="brand"><span>GO</span><b>INVEST</b></div>
+  <h1 class="serif">Seu capital em <em>ativos reais</em></h1>
+  <p>Transformamos capital em patrimônio real: imóveis comprados abaixo do mercado, com você como sócio e a gestão inteiramente conosco.</p>
+</header>
+
+<div class="wrap">
+  <div class="grid" id="grid">
+
+    <a class="card feature" href="oferta.html">
+      <div class="ic">🏛️</div>
+      <h3>Oferta em destaque · Residencial Einstein</h3>
+      <p>Conheça o projeto, o cálculo estimado da operação, os cenários de saída e simule o seu investimento.</p>
+      <span class="go">Ver a oferta e simular →</span>
+    </a>
+
+    <a class="card" href="apresentacao.html">
+      <div class="n">01</div><div class="ic">▶️</div>
+      <h3>Apresentação institucional</h3>
+      <p>Nossa tese em formato de apresentação, para conhecer o modelo do começo ao fim.</p>
+      <span class="go">Assistir →</span>
+    </a>
+
+    <a class="card" href="sobre.html">
+      <div class="n">02</div><div class="ic">🏙️</div>
+      <h3>A GO Invest</h3>
+      <p>Quem somos, a filosofia e por que investir em ativos reais com deságio.</p>
+      <span class="go">Conhecer →</span>
+    </a>
+
+    <a class="card" href="como-funciona.html">
+      <div class="n">03</div><div class="ic">🔄</div>
+      <h3>Como funciona</h3>
+      <p>O passo a passo do modelo, do ativo com deságio ao lucro distribuído.</p>
+      <span class="go">Ver o fluxo →</span>
+    </a>
+
+    <a class="card" href="simulador.html">
+      <div class="n">04</div><div class="ic">🧮</div>
+      <h3>Simulador de investimento</h3>
+      <p>Simule cenários com o seu aporte e prazo e compare com a poupança e o CDI.</p>
+      <span class="go">Simular →</span>
+    </a>
+
+  </div>
+</div>
+
+<div class="cta">
+  <a href="mailto:contato@gocompany360.com.br?subject=Quero%20investir%20com%20a%20GO%20Invest" class="btn">Falar com um especialista</a>
+</div>
+
+<footer>
+  <div class="brand" style="font-size:18px;color:#fff"><span>GO</span><b>INVEST</b></div>
+  <div class="disc">Material informativo; não constitui oferta pública, recomendação ou promessa de rentabilidade. Cenários ilustrativos. A participação observa o Estatuto Social, o Termo de Adesão e o Acordo de Acionistas e a regulação aplicável. © 2026 GO Invest.</div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach((e,)=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+document.querySelectorAll('.card').forEach((el,i)=>{el.style.transitionDelay=(i*0.06)+'s';io.observe(el);});
+</script>
+</body>
+</html>

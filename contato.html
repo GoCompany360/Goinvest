@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Contato — GO Invest</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=Playfair+Display:ital,wght@0,700;0,800&display=swap" rel="stylesheet"><style>
+:root{--navy:#0b1c33;--gold:#c9a227;--gold2:#e0c25a;--ice:#cadcfc;--mut:#8ea0bd;--line:rgba(255,255,255,.14)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:var(--navy);color:#eef2f9;line-height:1.6;overflow-x:hidden}
+.serif{font-family:'Playfair Display',serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 26px}
+.hero{text-align:center;padding:70px 24px 20px}
+.kick{color:var(--gold2);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,50px);font-weight:800;color:#fff;margin:14px 0}
+.hero p{color:var(--ice);max-width:56ch;margin:0 auto;font-weight:300}
+.grid{display:grid;grid-template-columns:1.3fr .9fr;gap:28px;padding:30px 0 20px;align-items:start}
+@media(max-width:780px){.grid{grid-template-columns:1fr}}
+form{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:28px}
+label{display:block;font-size:13px;color:var(--ice);margin:14px 0 6px;font-weight:600}
+input,select,textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;font-family:inherit;font-size:15px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+option{color:#12294a}
+button{margin-top:20px;width:100%;padding:15px;border:0;border-radius:40px;background:var(--gold);color:#12294a;font-weight:700;font-size:15px;cursor:pointer;transition:.25s}
+button:hover{background:var(--gold2)}
+.side .box{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:16px}
+.side h3{color:#fff;font-size:16px;margin-bottom:6px}
+.side a{color:var(--gold2);text-decoration:none;font-weight:600;word-break:break-word}
+.side p{color:var(--mut);font-size:14px}
+footer{text-align:center;padding:44px 24px;color:#66799a;font-size:12px;border-top:1px solid var(--line);margin-top:30px}
+footer .disc{max-width:80ch;margin:0 auto;line-height:1.5}
+</style><style id="gi-navstyle">
+.gi-nav{position:fixed;top:0;left:0;right:0;height:58px;z-index:9999;display:flex;align-items:center;background:rgba(11,28,51,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1);font-family:'Montserrat',sans-serif}
+.gi-nav .gi-in{max-width:1180px;margin:0 auto;width:100%;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.gi-nav .gi-logo{font-size:18px;color:#fff;letter-spacing:.5px;text-decoration:none}
+.gi-nav .gi-logo b{font-weight:800;font-style:italic}.gi-nav .gi-logo span{font-weight:500}
+.gi-nav .gi-links{display:flex;align-items:center;gap:22px}
+.gi-nav .gi-links a{color:#cadcfc;text-decoration:none;font-size:14px;font-weight:500;transition:.2s;white-space:nowrap}
+.gi-nav .gi-links a:hover{color:#e0c25a}
+.gi-nav .gi-links a.gi-cta{background:#c9a227;color:#12294a;padding:9px 18px;border-radius:30px;font-weight:700}
+.gi-nav .gi-links a.gi-cta:hover{background:#e0c25a}
+.gi-burg{display:none;background:none;border:0;color:#fff;font-size:24px;cursor:pointer;line-height:1}
+body{padding-top:58px !important}
+@media(max-width:900px){
+ .gi-nav .gi-links{position:fixed;top:58px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:rgba(11,28,51,.99);border-bottom:1px solid rgba(255,255,255,.1);max-height:0;overflow:hidden;transition:max-height .35s ease}
+ .gi-nav .gi-links.open{max-height:460px}
+ .gi-nav .gi-links a{padding:15px 22px;border-top:1px solid rgba(255,255,255,.06)}
+ .gi-nav .gi-links a.gi-cta{border-radius:0}
+ .gi-burg{display:block}
+}
+</style></head><body><nav class="gi-nav"><div class="gi-in">
+ <a class="gi-logo" href="index.html"><span>GO</span><b>INVEST</b></a>
+ <button class="gi-burg" aria-label="Menu" onclick="document.getElementById('giLinks').classList.toggle('open')">&#9776;</button>
+ <div class="gi-links" id="giLinks">
+  <a href="index.html">Início</a>
+  <a href="oferta.html">Oferta</a>
+  <a href="como-funciona.html">Como funciona</a>
+  <a href="apresentacao.html">Apresentação</a>
+  <a href="sobre.html">A GO Invest</a>
+  <a href="simulador.html">Simulador</a>
+  <a href="contato.html" class="gi-cta">Contato</a>
+ </div>
+</div></nav>
+
+<div class="hero">
+ <div class="kick">Contato</div>
+ <h1 class="serif">Vamos construir o seu legado.</h1>
+ <p>Conte um pouco sobre você e o seu objetivo. Retornamos com as informações da próxima operação e tiramos suas dúvidas.</p>
+</div>
+<div class="wrap">
+ <div class="grid">
+  <form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+   <input type="hidden" name="form-name" value="contato">
+   <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
+   <label>Nome completo</label><input type="text" name="nome" required>
+   <label>E-mail</label><input type="email" name="email" required>
+   <label>Telefone / WhatsApp</label><input type="tel" name="telefone">
+   <label>Faixa de aporte pretendida</label>
+   <select name="faixa">
+    <option value="">Selecione…</option>
+    <option>Até R$ 10 mil</option>
+    <option>R$ 10 mil a R$ 50 mil</option>
+    <option>R$ 50 mil a R$ 200 mil</option>
+    <option>Acima de R$ 200 mil</option>
+   </select>
+   <label>Mensagem</label><textarea name="mensagem" rows="4" placeholder="Como podemos ajudar?"></textarea>
+   <button type="submit">Enviar</button>
+  </form>
+  <div class="side">
+   <div class="box"><h3>E-mail</h3><a href="mailto:contato@gocompany360.com.br">contato@gocompany360.com.br</a></div>
+   <div class="box"><h3>WhatsApp</h3><p>Fale direto com um especialista.</p><a href="https://wa.me/55">Abrir conversa</a></div>
+   <div class="box"><h3>Documentos</h3><p>Estatuto, Termo de Adesão e Acordo de Acionistas são compartilhados no processo de participação.</p></div>
+  </div>
+ </div>
+</div>
+<footer>
+ <div class="disc">Material informativo; não constitui oferta pública, recomendação ou promessa de rentabilidade. Ao enviar, você concorda em ser contatado pela GO Invest. © 2026 GO Invest.</div>
+</footer>
+</body></html>
