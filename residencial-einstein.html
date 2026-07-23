@@ -110,6 +110,10 @@ h2 em{font-style:italic;color:var(--acc)}
 .imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)}
 .ph{background:repeating-linear-gradient(45deg,rgba(42,39,32,.03) 0 12px,transparent 12px 24px),linear-gradient(135deg,#ece6da,#ded6c7);display:flex;align-items:center;justify-content:center;color:#a99f8d;font-size:12px;letter-spacing:2px;text-transform:uppercase}
 
+/* video */
+.videowrap{position:relative;max-width:980px;margin:44px auto 0;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--lineD);box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.videowrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
 /* diferenciais */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:860px){.grid3{grid-template-columns:1fr}}
@@ -222,6 +226,7 @@ footer .disc{color:#8f887c;font-size:12px;max-width:80ch;margin:0 auto;line-heig
   <button class="burg" onclick="document.getElementById('lk').classList.toggle('open')">&#9776;</button>
   <div class="links" id="lk" onclick="this.classList.remove('open')">
     <a href="#sobre">Sobre</a>
+    <a href="#video">Vídeo</a>
     <a href="#diferenciais">Diferenciais</a>
     <a href="#plantas">Plantas</a>
     <a href="#lazer">Lazer</a>
@@ -275,6 +280,14 @@ footer .disc{color:#8f887c;font-size:12px;max-width:80ch;margin:0 auto;line-heig
       <div class="f"><div class="k">Estrutura</div><div class="v">15 pavimentos · 99 apts</div></div>
       <div class="f"><div class="k">Localização</div><div class="v">Rua do Rosário, 335 · SM/RS</div></div>
     </div>
+  </div>
+</div></section>
+
+<section id="video" class="dark"><div class="wrap" style="text-align:center">
+  <div class="rv"><div class="tag" style="display:inline-block">Vídeo</div><h2 class="serif">Conheça o Einstein <em>em movimento</em>.</h2>
+  <p class="lead" style="margin:22px auto 0">Um passeio pelo empreendimento, da fachada às áreas comuns.</p></div>
+  <div class="videowrap rv d1">
+    <iframe src="https://www.youtube-nocookie.com/embed/TCZTPoFPJWA?rel=0" title="Vídeo Residencial Einstein" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
   </div>
 </div></section>
 
