@@ -66,8 +66,10 @@ img{display:block;max-width:100%}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:999px;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;transition:.3s;cursor:pointer;border:1px solid transparent}
 .btn.solid{background:var(--acc);color:#fff}.btn.solid:hover{background:var(--brown);transform:translateY(-3px);box-shadow:0 14px 30px rgba(95,83,68,.35)}
 .btn.line{border-color:rgba(255,255,255,.4);color:#fff}.btn.line:hover{border-color:var(--acc2);color:var(--acc2)}
-.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:3px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
-.scroll-cue span{width:1px;height:44px;background:linear-gradient(var(--acc2),transparent);animation:cue 2s ease-in-out infinite}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:11px;color:rgba(255,255,255,.72);font-size:10px;letter-spacing:3px;text-transform:uppercase}
+.scroll-cue .mouse{width:26px;height:42px;border:2px solid rgba(255,255,255,.55);border-radius:14px;position:relative}
+.scroll-cue .mouse::before{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;background:var(--acc2);border-radius:2px;animation:mouseWheel 1.8s ease-in-out infinite}
+@keyframes mouseWheel{0%{opacity:0;transform:translateY(0)}25%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translateY(13px)}}
 @keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
 
 /* STATS */
@@ -136,7 +138,7 @@ h2 em{font-style:italic;color:var(--acc)}
 .carousel{margin-top:44px}
 .stage{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}
 .stage .frame{position:relative;height:min(72vh,620px);background:#fbfaf6;display:flex;align-items:center;justify-content:center}
-.stage .frame img{max-width:94%;max-height:94%;object-fit:contain;opacity:0;transition:opacity .5s}
+.stage .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:18px;opacity:0;transition:opacity .5s}
 .stage .frame img.on{opacity:1}
 .stage .frame .ph{position:absolute;inset:0}
 .cap{position:absolute;left:26px;bottom:22px;background:rgba(33,31,26,.82);color:#fff;padding:12px 20px;border-radius:14px;backdrop-filter:blur(4px)}
@@ -251,7 +253,7 @@ footer .disc{color:#8f887c;font-size:12px;max-width:80ch;margin:0 auto;line-heig
       <a href="#sobre" class="btn line">Conhecer o projeto</a>
     </div>
   </div>
-  <div class="scroll-cue">Role<span></span></div>
+  <div class="scroll-cue"><div class="mouse"></div><span>Role</span></div>
 </header>
 
 <div class="stats"><div class="wrap in">
