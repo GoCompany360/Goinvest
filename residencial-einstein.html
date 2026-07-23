@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!--
+  LP RESIDENCIAL EINSTEIN — identidade própria (MS Incorporações).
+  Logo recriado em CSS (.elogo). Paleta da marca: grafite + bronze + creme.
+  Imagens: puxadas do Google Drive (thumbnail). Para produção, o ideal é localizar os arquivos em img/.
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Residencial Einstein · Santa Maria/RS · MS Incorporações</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0c0e; --bg2:#111014; --panel:#17161a; --panel2:#1d1c21;
+  --brown:#5f5344;      /* bloco ST da marca */
+  --acc:#c2a878;        /* bronze/champagne */
+  --acc2:#e4d2ac; --cream:#efe7d6;
+  --txt:#f0ece4; --mut:#98918a; --line:rgba(255,255,255,.09);
+  --serif:'Cormorant Garamond',serif; --sans:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+img{display:block;max-width:100%}
+::selection{background:var(--acc);color:#0c0c0e}
+.wrap{max-width:1180px;margin:0 auto;padding:0 30px}
+.serif{font-family:var(--serif)}
+
+body::before{content:"";position:fixed;inset:-30% -10% auto -10%;height:80vh;z-index:-2;
+  background:radial-gradient(50% 60% at 18% 15%,rgba(194,168,120,.13),transparent 60%),
+             radial-gradient(45% 55% at 88% 8%,rgba(95,83,68,.35),transparent 60%);
+  filter:blur(20px);animation:drift 20s ease-in-out infinite alternate}
+body::after{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,#0c0c0e,#0d0d10 45%,#0c0c0e)}
+@keyframes drift{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-4%,5%,0) scale(1.08)}}
+
+.prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:10001;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+
+/* ===== LOGO em CSS ===== */
+.elogo{display:inline-flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;font-family:var(--sans)}
+.elogo .r{font-size:.46em;letter-spacing:.5em;font-weight:600;color:var(--acc);margin-bottom:.4em;padding-left:.5em}
+.elogo .w{display:flex;align-items:stretch;font-weight:800;letter-spacing:.02em;color:#fff}
+.elogo .w .st{background:var(--brown);color:var(--cream);padding:.02em .18em;margin:0 .06em;border-radius:.14em;display:inline-flex;align-items:center}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:9999;transition:.4s;padding:20px 0}
+.nav.small{padding:11px 0;background:rgba(12,12,14,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .in{display:flex;align-items:center;justify-content:space-between}
+.nav .elogo{font-size:22px}
+.links{display:flex;align-items:center;gap:28px}
+.links a{color:var(--mut);text-decoration:none;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;transition:.25s;position:relative}
+.links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--acc);transition:.3s}
+.links a:not(.cta):hover{color:#fff}.links a:not(.cta):hover::after{width:100%}
+.links a.cta{border:1px solid var(--acc);color:var(--acc);padding:10px 20px;border-radius:2px}
+.links a.cta:hover{background:var(--acc);color:#0c0c0e}
+.burg{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0;background:linear-gradient(160deg,#1a1917,#0c0c0e)}
+.hero .bg img{width:100%;height:118%;object-fit:cover;position:absolute;inset:0;opacity:.6}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:
+  linear-gradient(90deg,rgba(12,12,14,.92),rgba(12,12,14,.4) 55%,rgba(12,12,14,.15)),
+  linear-gradient(0deg,#0c0c0e,transparent 45%)}
+.hero .in{position:relative;z-index:2;max-width:860px}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--acc);font-size:12px;letter-spacing:5px;text-transform:uppercase;font-weight:600}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--acc)}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(46px,9vw,116px);line-height:.96;color:#fff;margin:20px 0 16px;letter-spacing:-.5px}
+.hero h1 em{font-style:italic;color:var(--acc2)}
+.hero .slogan{font-size:clamp(17px,2.1vw,23px);color:var(--txt);font-weight:200;max-width:56ch}
+.hero .actions{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:2px;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:.3s;cursor:pointer;border:1px solid transparent}
+.btn.solid{background:var(--acc);color:#0c0c0e}.btn.solid:hover{background:var(--acc2);transform:translateY(-3px)}
+.btn.line{border-color:rgba(255,255,255,.25);color:#fff}.btn.line:hover{border-color:var(--acc);color:var(--acc)}
+.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;color:var(--mut);font-size:11px;letter-spacing:3px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-cue span{width:1px;height:44px;background:linear-gradient(var(--acc),transparent);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
+.stats .in{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats .s{padding:38px 20px;text-align:center;border-left:1px solid var(--line)}
+.stats .s:first-child{border-left:0}
+.stats .s .n{font-family:var(--serif);font-size:clamp(34px,5vw,54px);color:var(--acc2);font-weight:600;line-height:1}
+.stats .s .l{color:var(--mut);font-size:11.5px;letter-spacing:2px;text-transform:uppercase;margin-top:10px}
+@media(max-width:720px){.stats .in{grid-template-columns:1fr 1fr}.stats .s:nth-child(3){border-left:0}}
+
+section{padding:120px 0;position:relative}
+.tag{color:var(--acc);font-size:12px;letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:18px}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.5vw,62px);line-height:1.04;color:#fff;letter-spacing:-.5px}
+h2 em{font-style:italic;color:var(--acc2)}
+.lead{color:var(--mut);font-size:clamp(16px,1.8vw,20px);font-weight:300;max-width:64ch;margin-top:22px}
+
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.16,.8,.3,1),transform 1s cubic-bezier(.16,.8,.3,1)}
+.rv.in{opacity:1;transform:none}.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}
+
+.concept{text-align:center}
+.concept .big{font-family:var(--serif);font-size:clamp(28px,4vw,50px);color:var(--txt);font-weight:500;max-width:22ch;margin:0 auto;line-height:1.2}
+.concept .big b{color:var(--acc2);font-weight:600}
+
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:40px}}
+.ficha{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.ficha .f{background:var(--bg);padding:22px}
+.ficha .f .k{color:var(--acc);font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.ficha .f .v{color:#fff;font-size:16px;font-weight:500;margin-top:7px}
+
+.imgbox{position:relative;overflow:hidden;background:var(--panel)}
+.imgbox .ph{position:absolute;inset:0}
+.imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)}
+.ph{background:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 12px,transparent 12px 24px),linear-gradient(135deg,#17161a,#1d1c21);
+   display:flex;align-items:center;justify-content:center;color:#4b4740;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
+@media(max-width:860px){.grid3{grid-template-columns:1fr}}
+.dif{background:var(--bg);padding:42px 32px;transition:.35s}
+.dif:hover{background:var(--panel)}
+.dif .no{font-family:var(--serif);font-size:22px;color:var(--acc);opacity:.6}
+.dif h3{font-family:var(--serif);font-size:26px;color:#fff;font-weight:600;margin:14px 0 10px}
+.dif p{color:var(--mut);font-size:15px}
+
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:900px){.grid4{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid4{grid-template-columns:1fr}}
+.tip{border:1px solid var(--line);padding:28px 24px;transition:.35s;background:linear-gradient(180deg,var(--panel),transparent)}
+.tip:hover{border-color:var(--acc);transform:translateY(-6px)}
+.tip .t{color:var(--acc);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.tip .m{font-family:var(--serif);font-size:34px;color:#fff;font-weight:600;margin:10px 0 4px}
+.tip .m small{font-size:15px;color:var(--mut)}
+.tip p{color:var(--mut);font-size:14px}
+
+.chips{display:flex;flex-wrap:wrap;gap:14px}
+.chip{border:1px solid var(--line);padding:13px 22px;color:var(--txt);font-size:15px;display:flex;align-items:center;gap:10px;transition:.3s;border-radius:2px}
+.chip:hover{border-color:var(--acc);color:var(--acc2)}
+.chip::before{content:"";width:6px;height:6px;background:var(--acc);border-radius:50%}
+
+.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.gal .imgbox{cursor:pointer;height:230px}
+.gal .imgbox:hover img{transform:scale(1.08)}
+.gal .g-lg{grid-column:span 4}.gal .g-sm{grid-column:span 2}
+@media(max-width:800px){.gal{grid-template-columns:1fr 1fr}.gal .g-lg,.gal .g-sm{grid-column:span 1}}
+
+.lb{position:fixed;inset:0;z-index:12000;background:rgba(6,6,8,.95);display:none;align-items:center;justify-content:center;padding:40px}
+.lb.on{display:flex}
+.lb .x{position:absolute;top:24px;right:32px;color:#fff;font-size:34px;cursor:pointer;line-height:1}
+
+.mapbox{margin-top:34px;border:1px solid var(--line);overflow:hidden}
+.mapbox .ph,.mapbox iframe{width:100%;height:420px;border:0;display:block}
+.poi{list-style:none;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.poi{grid-template-columns:1fr}}
+.poi li{color:var(--txt);font-size:16px;font-weight:300;display:flex;gap:12px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
+.poi li b{color:var(--acc);font-weight:600;font-size:13px;letter-spacing:1px;min-width:78px}
+
+.obra{display:grid;gap:22px;margin-top:38px;max-width:760px}
+.obra .row .top{display:flex;justify-content:space-between;color:#fff;font-weight:500;margin-bottom:10px;font-size:15px}
+.obra .row .top .p{color:var(--acc2);font-family:var(--serif);font-size:20px}
+.obra .row .bar{height:6px;background:rgba(255,255,255,.06);overflow:hidden}
+.obra .row .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width 1.4s cubic-bezier(.16,.8,.3,1)}
+
+.builder{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+@media(max-width:860px){.builder{grid-template-columns:1fr;gap:30px}}
+.builder .mini{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
+.builder .mini .m .n{font-family:var(--serif);font-size:40px;color:var(--acc2);line-height:1}
+.builder .mini .m .l{color:var(--mut);font-size:13px;margin-top:4px}
+
+.cta-sec{background:radial-gradient(60% 100% at 50% 0%,rgba(194,168,120,.12),transparent 70%),var(--bg2);border-top:1px solid var(--line)}
+.form{max-width:640px;margin:34px auto 0;display:grid;gap:16px}
+.form .r2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.form .r2{grid-template-columns:1fr}}
+.form input,.form select,.form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:#fff;padding:15px 16px;font-family:inherit;font-size:15px;border-radius:2px}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--acc)}
+.form option{color:#0c0c0e}
+
+.wa{position:fixed;bottom:26px;right:26px;z-index:9000;width:58px;height:58px;border-radius:50%;background:var(--acc);color:#0c0c0e;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:.3s}
+.wa:hover{transform:scale(1.08) translateY(-2px);background:var(--acc2)}
+
+footer{padding:60px 0;border-top:1px solid var(--line);text-align:center}
+footer .elogo{font-size:20px;margin-bottom:18px}
+footer .disc{color:#5b564e;font-size:12px;max-width:80ch;margin:0 auto;line-height:1.6}
+footer .ms{color:var(--mut);font-size:13px;margin-top:16px}
+
+@media(max-width:900px){
+ section{padding:80px 0}
+ .burg{display:block}
+ .links{position:fixed;top:0;right:-100%;height:100vh;width:80%;max-width:340px;flex-direction:column;align-items:flex-start;justify-content:center;gap:26px;padding:40px;background:var(--panel);transition:.4s;z-index:9998}
+ .links.open{right:0}.links a{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="prog" id="prog"></div>
+
+<nav class="nav" id="nav"><div class="wrap in">
+  <a class="elogo" href="#top"><span class="r">Residencial</span><span class="w">EIN<span class="st">ST</span>EIN</span></a>
+  <button class="burg" onclick="document.getElementById('lk').classList.toggle('open')">&#9776;</button>
+  <div class="links" id="lk" onclick="this.classList.remove('open')">
+    <a href="#sobre">Sobre</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#plantas">Plantas</a>
+    <a href="#lazer">Lazer</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#local">Localização</a>
+    <a href="#interesse" class="cta">Tenho interesse</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="bg">
+    <div class="ph" style="position:absolute;inset:0">[ fachada ]</div>
+    <img src="https://drive.google.com/thumbnail?id=1z1bRQ_EQZlS3qerpmLJcS6AqQFYmbPdo&sz=w1920" alt="Fachada Residencial Einstein" onerror="this.remove()">
+  </div>
+  <div class="wrap in">
+    <div class="eyebrow">Santa Maria · RS · Bairro N. Sra. do Rosário</div>
+    <h1 class="serif">Uma nova<br>fórmula de <em>morar</em>.</h1>
+    <p class="slogan">Onde o conhecimento pulsa. Arquitetura autoral, unidades amplas e um endereço no coração do eixo acadêmico de Santa Maria — assinatura MS Incorporações.</p>
+    <div class="actions">
+      <a href="#interesse" class="btn solid">Tenho interesse</a>
+      <a href="#sobre" class="btn line">Conhecer o projeto</a>
+    </div>
+  </div>
+  <div class="scroll-cue">Role<span></span></div>
+</header>
+
+<div class="stats"><div class="wrap in">
+  <div class="s"><div class="n" data-count="99">0</div><div class="l">Apartamentos</div></div>
+  <div class="s"><div class="n" data-count="15">0</div><div class="l">Pavimentos</div></div>
+  <div class="s"><div class="n" data-count="121">0</div><div class="l">Vagas de garagem</div></div>
+  <div class="s"><div class="n">1 a 3</div><div class="l">Dormitórios</div></div>
+</div></div>
+
+<section class="concept"><div class="wrap rv">
+  <div class="tag" style="display:inline-block">O conceito</div>
+  <p class="big">Inspirado pela genialidade que mudou a forma como enxergamos o <b>tempo</b> e o <b>espaço</b>. Aqui, seu lar se torna fonte de inspiração.</p>
+</div></section>
+
+<section id="sobre"><div class="wrap split">
+  <div class="rv">
+    <div class="tag">O empreendimento</div>
+    <h2 class="serif">Perenidade, no coração de um eixo <em>em expansão</em>.</h2>
+    <p class="lead">Assim como as descobertas de Albert Einstein atravessam gerações, o Residencial Einstein nasce para permanecer. Uso misto, arquitetura autoral e áreas comuns entregues mobiliadas e decoradas — no Bairro Nossa Senhora do Rosário, com acesso pela Rua do Rosário, 335, e também pela Rua Conde de Porto Alegre. Um endereço rodeado por universidades, comércio e serviços.</p>
+  </div>
+  <div class="rv d1">
+    <div class="ficha">
+      <div class="f"><div class="k">Incorporadora</div><div class="v">MS Incorporações</div></div>
+      <div class="f"><div class="k">Arquitetura</div><div class="v">Guilherme Isbrecht</div></div>
+      <div class="f"><div class="k">Paisagismo</div><div class="v">Thamila Brum Studio</div></div>
+      <div class="f"><div class="k">Projeto estrutural</div><div class="v">Ronaldo Segala</div></div>
+      <div class="f"><div class="k">Estrutura</div><div class="v">15 pavimentos · 99 apts</div></div>
+      <div class="f"><div class="k">Localização</div><div class="v">Rua do Rosário, 335 · SM/RS</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="diferenciais" style="background:rgba(255,255,255,.015)"><div class="wrap">
+  <div class="rv"><div class="tag">Diferenciais</div><h2 class="serif">Detalhes que fazem a <em>diferença</em>.</h2></div>
+  <div class="grid3 rv d1" style="margin-top:44px">
+    <div class="dif"><div class="no">01</div><h3>Arquitetura autoral</h3><p>Projeto atemporal e funcional assinado por Guilherme Isbrecht, com paisagismo do Thamila Brum Studio.</p></div>
+    <div class="dif"><div class="no">02</div><h3>Unidades amplas</h3><p>Na contramão do mercado, apartamentos generosos de 1 a 3 dormitórios — espaço de verdade para viver.</p></div>
+    <div class="dif"><div class="no">03</div><h3>Eixo acadêmico</h3><p>No coração de uma região universitária em expansão: liquidez, valorização e vida urbana ativa.</p></div>
+    <div class="dif"><div class="no">04</div><h3>Áreas comuns prontas</h3><p>Todas as áreas de uso comum entregues mobiliadas, equipadas e decoradas. É só chegar e viver.</p></div>
+    <div class="dif"><div class="no">05</div><h3>Eficiência</h3><p>Placas solares e gerador para as áreas comuns — mais conforto e um custo de condomínio enxuto.</p></div>
+    <div class="dif"><div class="no">06</div><h3>Uso misto</h3><p>Salas comerciais no térreo com acesso independente, somando conveniência e versatilidade ao endereço.</p></div>
+  </div>
+</div></section>
+
+<section id="plantas"><div class="wrap">
+  <div class="rv"><div class="tag">Plantas e tipologias</div><h2 class="serif">Uma opção para cada <em>objetivo</em>.</h2></div>
+  <div class="grid4 rv d1" style="margin-top:44px">
+    <div class="tip"><div class="t">1 dormitório</div><div class="m">64–78<small> m²</small></div><p>Amplos, alguns com suíte. Ideais para morar ou investir.</p></div>
+    <div class="tip"><div class="t">2 dormitórios · suíte</div><div class="m">88–89<small> m²</small></div><p>Varanda gourmet integrada com churrasqueira.</p></div>
+    <div class="tip"><div class="t">3 dormitórios · suíte</div><div class="m">122,9<small> m²</small></div><p>Plantas generosas para a família crescer.</p></div>
+    <div class="tip"><div class="t">3 dorm · 2 suítes</div><div class="m">153<small> m²</small></div><p>Unidades combinadas, o auge do empreendimento.</p></div>
+  </div>
+  <div class="imgbox rv d1" style="height:460px;margin-top:22px;border:1px solid var(--line)">
+    <div class="ph">[ planta tipo decorada ]</div>
+    <img src="https://drive.google.com/thumbnail?id=1kNZQmrXLAg2q4Q5pBgnxT2fz5DZUGfFh&sz=w1600" alt="Planta tipo decorada" style="object-fit:contain;background:#101013" onerror="this.remove()">
+  </div>
+</div></section>
+
+<section id="lazer" style="background:rgba(255,255,255,.015)"><div class="wrap">
+  <div class="rv"><div class="tag">Lazer e áreas comuns</div><h2 class="serif">Estrutura completa, <em>sem sair de casa</em>.</h2>
+  <p class="lead">Todas as áreas de uso comum entregues mobiliadas, equipadas e decoradas.</p></div>
+  <div class="chips rv d1" style="margin-top:36px">
+    <div class="chip">Salão de festas p/ 80 pessoas</div>
+    <div class="chip">Espaço gourmet</div>
+    <div class="chip">Espaço fitness equipado</div>
+    <div class="chip">Hall de entrada assinado</div>
+    <div class="chip">Praça exclusiva do residencial</div>
+    <div class="chip">Jardins e áreas verdes</div>
+    <div class="chip">Espaço Kids</div>
+    <div class="chip">Espaço Pet</div>
+    <div class="chip">Mercado autônomo exclusivo</div>
+    <div class="chip">Rooftop</div>
+    <div class="chip">Bicicletário</div>
+    <div class="chip">Gerador + placas solares</div>
+  </div>
+</div></section>
+
+<section id="galeria"><div class="wrap">
+  <div class="rv"><div class="tag">Galeria</div><h2 class="serif">O projeto em <em>imagens</em>.</h2></div>
+  <div class="gal rv d1" style="margin-top:44px">
+    <div class="imgbox g-lg"><div class="ph">[ fachada ]</div><img src="https://drive.google.com/thumbnail?id=11ZNT0mOCErGQgo8T6TnszN76vtppjh33&sz=w1400" alt="Fachada" onerror="this.remove()"></div>
+    <div class="imgbox g-sm"><div class="ph">[ vista lateral ]</div><img src="https://drive.google.com/thumbnail?id=1hA52OMIDScwpdCPMq_YiPCuDRCxHayJt&sz=w900" alt="Vista lateral" onerror="this.remove()"></div>
+    <div class="imgbox g-sm"><div class="ph">[ hall de entrada ]</div><img src="https://drive.google.com/thumbnail?id=1o6jisf8C9b722U5acj3F9lqR0MeYoRUg&sz=w900" alt="Hall de entrada" onerror="this.remove()"></div>
+    <div class="imgbox g-sm"><div class="ph">[ salão de festas ]</div><img src="https://drive.google.com/thumbnail?id=1zOobHEOPFip2JD6OynMKpGFiNFPwuNMI&sz=w900" alt="Salão de festas" onerror="this.remove()"></div>
+    <div class="imgbox g-sm"><div class="ph">[ espaço gourmet ]</div><img src="https://drive.google.com/thumbnail?id=1MC5OW2tpWNhBhHsScXl1kgYzDZ3uM3HH&sz=w900" alt="Espaço gourmet" onerror="this.remove()"></div>
+    <div class="imgbox g-lg"><div class="ph">[ academia ]</div><img src="https://drive.google.com/thumbnail?id=117cG18W5wYo1jYnjEgirG-t8-fH6Hpt8&sz=w1400" alt="Academia" onerror="this.remove()"></div>
+  </div>
+</div></section>
+
+<section id="local" style="background:rgba(255,255,255,.015)"><div class="wrap">
+  <div class="rv"><div class="tag">Localização</div><h2 class="serif">No centro do <em>conhecimento</em>.</h2>
+  <p class="lead">Rua do Rosário, 335 — Bairro Nossa Senhora do Rosário, com acesso secundário pela Rua Conde de Porto Alegre. Universidades, comércio, gastronomia e serviços a poucos passos.</p></div>
+  <ul class="poi rv d1">
+    <li><b>Ensino</b> Universidades e faculdades do eixo acadêmico</li>
+    <li><b>Compras</b> Supermercados e comércio do centro</li>
+    <li><b>Cultura</b> Igreja do Rosário e Museu Treze de Maio</li>
+    <li><b>Lazer</b> Gastronomia, cafés e serviços no entorno</li>
+  </ul>
+  <!-- MAPA: cole aqui o embed do Google Maps -->
+  <div class="mapbox rv d1"><div class="ph">[ mapa do Google — colar embed ]</div></div>
+</div></section>
+
+<section id="obra"><div class="wrap">
+  <div class="rv"><div class="tag">Andamento da obra</div><h2 class="serif">Em construção, <em>fase avançada</em>.</h2></div>
+  <div class="obra rv d1">
+    <div class="row"><div class="top"><span>Fundação e estrutura</span><span class="p">em andamento</span></div><div class="bar"><span data-w="70"></span></div></div>
+    <div class="row"><div class="top"><span>Alvenaria</span><span class="p">em andamento</span></div><div class="bar"><span data-w="45"></span></div></div>
+    <div class="row"><div class="top"><span>Instalações</span><span class="p">em andamento</span></div><div class="bar"><span data-w="25"></span></div></div>
+    <div class="row"><div class="top"><span>Acabamentos</span><span class="p">próxima etapa</span></div><div class="bar"><span data-w="8"></span></div></div>
+  </div>
+  <p class="lead" style="font-size:13px">Percentuais ilustrativos — ajuste conforme o cronograma oficial da obra.</p>
+</div></section>
+
+<section id="assina" style="background:rgba(255,255,255,.015)"><div class="wrap builder">
+  <div class="rv">
+    <div class="tag">Quem constrói</div>
+    <h2 class="serif">MS Incorporações.</h2>
+    <p class="lead">Desde 2005, em Santa Maria, a MS Incorporações edifica conforto e alto padrão. Fundada por Giovani Moro, construiu ao longo de duas décadas uma reputação de qualidade, durabilidade e valorização — entregando o que promete.</p>
+    <div class="mini">
+      <div class="m"><div class="n">2005</div><div class="l">Fundação</div></div>
+      <div class="m"><div class="n">+6</div><div class="l">Empreendimentos entregues</div></div>
+      <div class="m"><div class="n">20</div><div class="l">Anos de credibilidade</div></div>
+    </div>
+  </div>
+  <div class="rv d1">
+    <div class="ficha">
+      <div class="f"><div class="k">Arquitetura</div><div class="v serif" style="font-size:20px">Guilherme Isbrecht</div></div>
+      <div class="f"><div class="k">Paisagismo</div><div class="v serif" style="font-size:20px">Thamila Brum Studio</div></div>
+      <div class="f"><div class="k">Estrutural</div><div class="v serif" style="font-size:20px">Ronaldo Segala</div></div>
+      <div class="f"><div class="k">Incorporação</div><div class="v serif" style="font-size:20px">MS Incorporações</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="interesse" class="cta-sec"><div class="wrap" style="text-align:center">
+  <div class="rv"><div class="tag" style="display:inline-block">Tenho interesse</div>
+  <h2 class="serif">Receba o material completo do <em>Einstein</em>.</h2>
+  <p class="lead" style="margin:22px auto 0">Deixe seus dados e um consultor entra em contato com plantas, disponibilidade e condições.</p></div>
+  <form class="form rv d1" onsubmit="event.preventDefault();var b=this.querySelector('button');b.textContent='Recebido — em breve entraremos em contato';b.disabled=true;">
+    <div class="r2"><input type="text" placeholder="Nome completo" required><input type="tel" placeholder="Telefone / WhatsApp" required></div>
+    <input type="email" placeholder="E-mail" required>
+    <select><option value="">Tipologia de interesse…</option><option>1 dormitório</option><option>2 dormitórios</option><option>3 dormitórios</option><option>Sala comercial</option></select>
+    <textarea rows="3" placeholder="Mensagem (opcional)"></textarea>
+    <button type="submit" class="btn solid" style="width:100%;justify-content:center">Quero receber</button>
+  </form>
+</div></section>
+
+<footer><div class="wrap">
+  <a class="elogo" href="#top"><span class="r">Residencial</span><span class="w">EIN<span class="st">ST</span>EIN</span></a>
+  <div class="ms">Uma realização MS Incorporações · Santa Maria/RS</div>
+  <div class="disc">Rua do Rosário, 335 — Bairro N. Sra. do Rosário — Santa Maria/RS. Imagens meramente ilustrativas; podem sofrer alterações sem aviso prévio. Material informativo, sem caráter de oferta ou proposta comercial.</div>
+</div></footer>
+
+<a class="wa" href="https://wa.me/5555999810808" target="_blank" rel="noopener" aria-label="WhatsApp">&#128172;</a>
+
+<div class="lb" id="lb" onclick="this.classList.remove('on')"><span class="x">&times;</span><div id="lbInner"></div></div>
+
+<script>
+const nav=document.getElementById('nav'),prog=document.getElementById('prog');
+addEventListener('scroll',()=>{
+  const st=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(h>0?st/h*100:0)+'%';
+  nav.classList.toggle('small',st>60);
+},{passive:true});
+
+function countUp(el){const to=parseFloat(el.dataset.count),t0=performance.now();
+  (function t(n){let p=Math.min(1,(n-t0)/1200);p=1-Math.pow(1-p,3);
+   el.textContent=Math.round(to*p).toLocaleString('pt-BR'); if(p<1)requestAnimationFrame(t);})(t0);}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(countUp);
+  e.target.querySelectorAll('.bar span[data-w]').forEach(s=>s.style.width=s.dataset.w+'%');
+  io.unobserve(e.target);}});},{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.stats .s').forEach(el=>io.observe(el));
+
+const lb=document.getElementById('lb'),lbInner=document.getElementById('lbInner');
+document.querySelectorAll('.gal .imgbox').forEach(box=>box.addEventListener('click',()=>{
+  const img=box.querySelector('img'); lbInner.innerHTML='';
+  if(img){const c=img.cloneNode();c.style.cssText='max-width:92vw;max-height:88vh;object-fit:contain';lbInner.appendChild(c);}
+  else{const d=document.createElement('div');d.className='ph';d.style.cssText='width:80vw;height:70vh';d.textContent='[ imagem ]';lbInner.appendChild(d);}
+  lb.classList.add('on');}));
+</script>
+</body>
+</html>
