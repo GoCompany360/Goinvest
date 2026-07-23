@@ -200,10 +200,11 @@ h2 em{font-style:italic;color:var(--acc)}
 .form select{color:#cfc7ba}.form option{color:#211f1a}
 
 /* WhatsApp float */
-.wa{position:fixed;bottom:24px;right:24px;z-index:9000;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 20px 14px 16px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 12px 30px rgba(0,0,0,.28);transition:.3s}
-.wa:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,0,0,.34)}
-.wa svg{width:24px;height:24px;fill:#fff}
-@media(max-width:560px){.wa span{display:none}.wa{padding:16px;border-radius:50%}}
+.wa{position:fixed;bottom:26px;right:26px;z-index:9000;display:flex;align-items:center;gap:11px;background:#25D366;color:#fff;padding:15px 24px 15px 18px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14.5px;letter-spacing:.3px;box-shadow:0 12px 30px rgba(0,0,0,.28);transition:.3s;animation:wapulse 2.6s ease-out infinite}
+.wa:hover{transform:translateY(-3px) scale(1.03);background:#20c05c;box-shadow:0 18px 40px rgba(37,211,102,.4);animation:none}
+.wa svg{width:26px;height:26px;fill:#fff}
+@keyframes wapulse{0%{box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 0 rgba(37,211,102,0)}}
+@media(max-width:560px){.wa span{display:none}.wa{padding:17px;border-radius:50%}}
 
 footer{padding:60px 0;text-align:center}
 footer .elogo{font-size:20px;margin-bottom:16px}
@@ -287,7 +288,7 @@ footer .disc{color:#8f887c;font-size:12px;max-width:80ch;margin:0 auto;line-heig
   <div class="rv"><div class="tag" style="display:inline-block">Vídeo</div><h2 class="serif">Conheça o Einstein <em>em movimento</em>.</h2>
   <p class="lead" style="margin:22px auto 0">Um passeio pelo empreendimento, da fachada às áreas comuns.</p></div>
   <div class="videowrap rv d1">
-    <iframe src="https://www.youtube-nocookie.com/embed/TCZTPoFPJWA?rel=0" title="Vídeo Residencial Einstein" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    <iframe src="https://www.youtube.com/embed/TCZTPoFPJWA?rel=0&playsinline=1&modestbranding=1" title="Vídeo Residencial Einstein" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
   </div>
 </div></section>
 
@@ -369,7 +370,7 @@ footer .disc{color:#8f887c;font-size:12px;max-width:80ch;margin:0 auto;line-heig
     <li><b>Cultura</b> Igreja do Rosário e Museu Treze de Maio</li>
     <li><b>Lazer</b> Gastronomia, cafés e serviços no entorno</li>
   </ul>
-  <div class="mapbox rv d1"><iframe src="https://www.google.com/maps?q=Rua%20do%20Ros%C3%A1rio%2C%20335%20-%20Santa%20Maria%20-%20RS&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Residencial Einstein"></iframe></div>
+  <div class="mapbox rv d1"><iframe src="https://maps.google.com/maps?q=-29.683878,-53.814857&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Residencial Einstein"></iframe></div>
 </div></section>
 
 <section id="obra" class="alt"><div class="wrap">
@@ -464,26 +465,22 @@ document.querySelectorAll('.stats .s').forEach(function(el){io.observe(el);});
 
 // carrossel de plantas
 var plants=[
- {id:'1EgTnmKGfPyRztJY0h9OFFkpBRwdRLbhs',t:'Final 1',m:'3 dorm · suíte · 122,9 m²'},
- {id:'1bXJOtZvb09QQuJ-mWz_ofWGKMJGlBhlT',t:'Final 2',m:'2 dorm · suíte · 88,4 m²'},
- {id:'18T79UT3ktyf_3n_BY4OCf_w-ENZTpWIs',t:'Final 3',m:'1 dorm · suíte · 78,6 m²'},
- {id:'1B-T5nqcAaB9pG4sfryAgNVDcqnYx347M',t:'Final 4',m:'1 dorm · 64 m²'},
- {id:'1UrNQNawnDEtb8mh7lTJBrhtNzot2KDhK',t:'Final 5',m:'1 dorm · 72,9 m²'},
- {id:'1ivqiJBBXN4NUsV2Zcip_IND8K3vgRgGl',t:'Final 6',m:'1 dorm · 68,3 m²'},
- {id:'1He6DOOTEP6x4TbMNXUWkNt-_fdr1SrWW',t:'Final 7',m:'1 dorm · 63,9 m²'},
- {id:'1USMVimnKxA_DzhWBSNcB0lzrs2RCQh_2',t:'Final 8',m:'2 dorm · suíte · 87,8 m²'},
- {id:'1-9SvX1upaSg_cAbjsO99cLdMbY_Iv6sH',t:'Final 9',m:'2 dorm · suíte · 89,1 m²'}
+ '1qfOkf4aoXZfMl1CEm-MD1-_LgT5A7QAH','1GCPakaE0HcgJ7s8kmhcCfwxLpV_0g8dS',
+ '1XkZaJqHOOzce9StIa2n1Ee0XngAPuHNQ','1EmrVDmMqaDkYp9sBAyNBxChefIcZ1K8k',
+ '1kHBEiJG4qtNrje2Wz__2FLjXHrtDYZkB','1nR98VIqgDgPLiddPpn15vpCj6AR1Juul',
+ '1ZDZdPQsaWtcOno_-iPVVXL9Vgxgs58f2','1r0BN-gErjMOdOy6uyB-mvKRms00uMsu1',
+ '12Jaf5u8rPaDe6leSj7KLSw3yTzYv5ar_','1i5JiiTDgIWI76Sf_LfntYoBL8_-equQB'
 ];
 var pIdx=0,frame=id('frame'),dots=id('dots');
-plants.forEach(function(p,i){
-  var im=document.createElement('img');im.src='https://drive.google.com/thumbnail?id='+p.id+'&sz=w1400';im.alt=p.t;im.dataset.i=i;
-  im.onerror=function(){this.remove();};frame.appendChild(im);
+plants.forEach(function(gid,i){
+  var im=document.createElement('img');im.src='https://drive.google.com/thumbnail?id='+gid+'&sz=w1600';im.alt='Planta '+(i+1);im.dataset.i=i;
+  im.onerror=function(){this.style.display='none';};frame.appendChild(im);
   var d=document.createElement('i');d.onclick=function(){plantGo(i);};dots.appendChild(d);
 });
 function plantGo(i){pIdx=(i+plants.length)%plants.length;
   frame.querySelectorAll('img').forEach(function(im){im.classList.toggle('on',+im.dataset.i===pIdx);});
   dots.querySelectorAll('i').forEach(function(d,k){d.classList.toggle('on',k===pIdx);});
-  id('capT').textContent=plants[pIdx].t;id('capM').textContent=plants[pIdx].m;}
+  id('capT').textContent='Planta';id('capM').textContent=(pIdx+1)+' de '+plants.length;}
 function plantMove(d){plantGo(pIdx+d);}
 plantGo(0);
 
