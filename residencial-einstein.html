@@ -234,13 +234,12 @@ footer{padding:60px 0;text-align:center}
 footer .elogo{font-size:20px;margin-bottom:16px}
 footer .ms{color:var(--acc2);font-size:13px;margin-bottom:14px}
 footer .disc{color:#8f887c;font-size:12px;max-width:80ch;margin:0 auto;line-height:1.6}
-.credit{margin:34px auto 0;padding-top:28px;border-top:1px solid var(--lineD);display:flex;flex-direction:column;align-items:center;gap:10px;max-width:520px}
-.credit .lbl{color:#8f887c;font-size:10px;letter-spacing:3px;text-transform:uppercase}
-.goco{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:#fff;transition:.3s}
-.goco:hover{color:var(--acc2)}
-.goco .mark{width:34px;height:34px;border:1.5px solid var(--acc2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:15px;color:var(--acc2);letter-spacing:.5px}
-.goco .txt{font-weight:700;letter-spacing:.5px;font-size:17px}.goco .txt span{color:var(--acc2)}
-.credit .sub{color:#6f685e;font-size:11px;letter-spacing:.3px}
+.credit-band{background:#ffffff;padding:42px 24px;display:flex;flex-direction:column;align-items:center;gap:15px;text-align:center}
+.credit-band .lbl{color:#9a9384;font-size:10px;letter-spacing:3.5px;text-transform:uppercase}
+.credit-band .goco-logo{height:40px;width:auto;display:block}
+.credit-band .txt{color:#2a2720;font-size:13px;max-width:64ch;line-height:1.6;font-weight:400}
+.credit-band .goco-link{display:inline-block;margin-top:2px;color:#9c7743;font-weight:700;font-size:12px;letter-spacing:.8px;text-decoration:none;transition:.25s}
+.credit-band .goco-link:hover{color:#5f5344}
 
 @media(max-width:900px){
  section{padding:82px 0}
@@ -483,14 +482,13 @@ footer .disc{color:#8f887c;font-size:12px;max-width:80ch;margin:0 auto;line-heig
   <a class="elogo light" href="#top"><span class="r">Residencial</span><span class="w">EIN<span class="st">ST</span>EIN</span></a>
   <div class="ms">Uma realização MS Incorporações · Santa Maria/RS</div>
   <div class="disc">Rua do Rosário, 335 — Bairro N. Sra. do Rosário — Santa Maria/RS. Imagens meramente ilustrativas; podem sofrer alterações sem aviso prévio. Material informativo, sem caráter de oferta ou proposta comercial.</div>
-  <div class="credit">
-    <div class="lbl">Empreendimento com gestão e marketing de</div>
-    <a class="goco" href="https://gocompany360.com.br" target="_blank" rel="noopener">
-      <span class="mark">GO</span><span class="txt">Company<span>360</span></span>
-    </a>
-    <div class="sub">Estratégia, inteligência e performance no mercado imobiliário · gocompany360.com.br</div>
-  </div>
 </div></footer>
+<div class="credit-band">
+  <div class="lbl">Desenvolvido por</div>
+  <img class="goco-logo" src="https://drive.google.com/thumbnail?id=1CKtOddtVVZGF_KxuKmh9TpCfgq8MDmZy&sz=w1200" alt="GO Company 360" onerror="this.style.display='none'">
+  <div class="txt">Este empreendimento e este site foram desenvolvidos pela GO Company — ecossistema estratégico de inteligência, marketing e gestão no mercado imobiliário.</div>
+  <a class="goco-link" href="https://gocompany360.com.br" target="_blank" rel="noopener">Quer saber mais sobre a GO? Acesse gocompany360.com.br &rarr;</a>
+</div>
 
 <a class="wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.26-.1-.45-.15-.64.15-.2.3-.74.94-.9 1.13-.17.2-.33.22-.62.08-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.5.16-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.2 0-.5.07-.76.37-.26.3-1 .98-1 2.38s1.02 2.76 1.17 2.95c.15.2 2.02 3.08 4.9 4.32.68.3 1.22.47 1.63.6.68.22 1.3.19 1.8.11.55-.08 1.7-.7 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34ZM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.15-.43-4.5-1.24l-.32-.19-2.85.9.9-2.78-.2-.33A8.2 8.2 0 1 1 12 20.2Z"/></svg>
