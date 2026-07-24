@@ -1,0 +1,600 @@
+<!--
+  ============================================================
+  MODELO-MESTRE DE LP DE EMPREENDIMENTO — GO COMPANY / GO INVEST
+  ============================================================
+  Esta é a estrutura-padrão. Para um novo produto, DUPLIQUE este arquivo,
+  renomeie (ex.: nome-do-empreendimento.html) e troque os itens abaixo.
+  Guia completo: modelo/COMO-USAR.md
+  O QUE MUDA por empreendimento:
+   1. <title> e a logo do menu (.elogo)
+   2. HERO: cidade/bairro, titulo, slogan, imagem de fundo (id do Drive)
+   3. Numeros (stats), Conceito
+   4. Sobre + ficha tecnica (incorporadora, arquitetura, paisagismo, estrutural, endereco)
+   5. Video (id do YouTube)  6. Diferenciais (6)  7. Tipologias (4) + plantas (array 'plants')
+   8. Lazer (chips)  9. Galeria (ids das 3 abas)  10. Localizacao (lat,lng do mapa + pontos)
+   11. Obra (%)  12. Quem constroi  13. Instagram (Behold feed-id + @user)  14. WhatsApp (WNUM)
+   15. Rodape do empreendimento.   NAO ALTERAR: a faixa de creditos da GO Company (rodape).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!--
+  LP RESIDENCIAL EINSTEIN — MS Incorporações. Identidade própria, tema claro/sofisticado.
+  WHATSAPP: troque a constante WNUM no script (formato só dígitos, ex.: 5555999810808).
+  Imagens vêm do Google Drive (thumbnail). Para produção, o ideal é localizar em img/.
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Residencial Einstein · Santa Maria/RS · MS Incorporações</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f2ea; --panel:#ffffff; --alt:#ece6da; --dark:#211f1a; --dark2:#2b2822;
+  --ink:#2a2720; --mut:#7c756a; --line:rgba(42,39,32,.12); --lineD:rgba(255,255,255,.12);
+  --brown:#5f5344; --acc:#9c7743; --acc2:#c2a878; --cream:#efe7d6;
+  --serif:'Cormorant Garamond',serif; --sans:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.7;overflow-x:hidden}
+img{display:block;max-width:100%}
+::selection{background:var(--acc);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 30px}
+.serif{font-family:var(--serif)}
+.prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:10001;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+
+/* LOGO CSS */
+.elogo{display:inline-flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;font-family:var(--sans)}
+.elogo .r{font-size:.46em;letter-spacing:.5em;font-weight:600;color:var(--acc);margin-bottom:.4em;padding-left:.5em}
+.elogo .w{display:flex;align-items:stretch;font-weight:800;letter-spacing:.02em;color:var(--ink)}
+.elogo .w .st{background:var(--brown);color:var(--cream);padding:.02em .18em;margin:0 .06em;border-radius:.16em;display:inline-flex;align-items:center}
+.elogo.light .w{color:#fff}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:9999;transition:.4s;padding:20px 0}
+.nav.small{padding:11px 0;background:rgba(245,242,234,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .in{display:flex;align-items:center;justify-content:space-between}
+.nav .elogo{font-size:22px}
+.nav.top .elogo .w{color:#fff}.nav.top .links a{color:rgba(255,255,255,.85)}
+.links{display:flex;align-items:center;gap:28px}
+.links a{color:var(--mut);text-decoration:none;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;transition:.25s;position:relative}
+.links a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--acc);transition:.3s}
+.links a:not(.cta):hover{color:var(--acc)}.links a:not(.cta):hover::after{width:100%}
+.links a.cta{border:1px solid currentColor;color:var(--acc);padding:10px 22px;border-radius:999px}
+.nav.top .links a.cta{color:#fff}
+.links a.cta:hover{background:var(--acc);color:#fff !important;border-color:var(--acc)}
+.burg{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+.nav.small .burg{color:var(--ink)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;overflow:hidden;background:#000}
+.hero .bg{position:absolute;inset:0;z-index:0;background:#000}
+.hero .bg img{width:100%;height:116%;object-fit:cover;position:absolute;inset:0;opacity:.9}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.32) 58%,transparent),linear-gradient(0deg,#000,transparent 48%)}
+.hero .in{position:relative;z-index:2;max-width:880px}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--acc2);font-size:12px;letter-spacing:5px;text-transform:uppercase;font-weight:600}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--acc2)}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(46px,9vw,116px);line-height:.96;color:#fff;margin:20px 0 16px;letter-spacing:-.5px}
+.hero h1 em{font-style:italic;color:var(--acc2)}
+.hero .slogan{font-size:clamp(17px,2.1vw,23px);color:#e9e4da;font-weight:300;max-width:56ch}
+.actions{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:999px;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;transition:.3s;cursor:pointer;border:1px solid transparent}
+.btn.solid{background:var(--acc);color:#fff}.btn.solid:hover{background:var(--brown);transform:translateY(-3px);box-shadow:0 14px 30px rgba(95,83,68,.35)}
+.btn.line{border-color:rgba(255,255,255,.4);color:#fff}.btn.line:hover{border-color:var(--acc2);color:var(--acc2)}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:11px;color:rgba(255,255,255,.72);font-size:10px;letter-spacing:3px;text-transform:uppercase}
+.scroll-cue .mouse{width:26px;height:42px;border:2px solid rgba(255,255,255,.55);border-radius:14px;position:relative}
+.scroll-cue .mouse::before{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;background:var(--acc2);border-radius:2px;animation:mouseWheel 1.8s ease-in-out infinite}
+@keyframes mouseWheel{0%{opacity:0;transform:translateY(0)}25%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translateY(13px)}}
+@keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* STATS */
+.stats{background:var(--panel);border-bottom:1px solid var(--line)}
+.stats .in{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:46px 0}
+.stats .s{text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.stats .s .n{font-family:var(--serif);font-size:clamp(40px,5.5vw,60px);color:var(--brown);font-weight:600;line-height:1}
+.stats .s .l{color:var(--mut);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+@media(max-width:720px){.stats .in{grid-template-columns:1fr 1fr;gap:34px}}
+
+section{padding:120px 0;position:relative}
+.tag{color:var(--acc);font-size:12px;letter-spacing:4px;text-transform:uppercase;font-weight:700;margin-bottom:18px}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5.5vw,60px);line-height:1.05;color:var(--ink);letter-spacing:-.5px}
+h2 em{font-style:italic;color:var(--acc)}
+.lead{color:var(--mut);font-size:clamp(16px,1.8vw,20px);font-weight:300;max-width:64ch;margin-top:22px}
+.dark{background:var(--dark);color:var(--cream)}
+.dark h2{color:#fff}.dark h2 em{color:var(--acc2)}.dark .tag{color:var(--acc2)}.dark .lead{color:#cfc7ba}
+.alt{background:var(--alt)}
+
+.rv{opacity:0;transform:translateY(38px);transition:opacity 1s cubic-bezier(.16,.8,.3,1),transform 1s cubic-bezier(.16,.8,.3,1)}
+.rv.in{opacity:1;transform:none}.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}
+
+/* conceito (dark band) */
+.concept{text-align:center}
+.concept .big{font-family:var(--serif);font-size:clamp(28px,4vw,50px);color:var(--cream);font-weight:500;max-width:24ch;margin:0 auto;line-height:1.22}
+.concept .big b{color:var(--acc2);font-weight:600;font-style:italic}
+
+/* sobre + ficha */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:40px}}
+.ficha{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ficha .f{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px;transition:.3s}
+.ficha .f:hover{border-color:var(--acc);box-shadow:0 10px 26px rgba(42,39,32,.06)}
+.ficha .f .k{color:var(--acc);font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.ficha .f .v{color:var(--ink);font-size:16px;font-weight:600;margin-top:7px}
+
+/* images */
+.imgbox{position:relative;overflow:hidden;background:var(--alt);border-radius:18px}
+.imgbox .ph{position:absolute;inset:0}
+.imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)}
+.ph{background:repeating-linear-gradient(45deg,rgba(42,39,32,.03) 0 12px,transparent 12px 24px),linear-gradient(135deg,#ece6da,#ded6c7);display:flex;align-items:center;justify-content:center;color:#a99f8d;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+
+/* video */
+.videowrap{position:relative;max-width:980px;margin:44px auto 0;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--lineD);box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.videowrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ig-wrap{max-width:1040px;margin:42px auto 0}
+.ig-follow{display:inline-flex;align-items:center;gap:9px;margin-top:26px;padding:13px 26px;border:1px solid var(--acc);border-radius:999px;color:var(--acc);text-decoration:none;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:.3s}
+.ig-follow:hover{background:var(--acc);color:#fff}
+.ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:820px){.ig-grid{grid-template-columns:1fr 1fr}}
+.ig-grid a{position:relative;aspect-ratio:1;overflow:hidden;border-radius:14px;display:block;background:var(--alt)}
+.ig-grid a img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.ig-grid a:hover img{transform:scale(1.08)}
+.ig-grid a::after{content:"";position:absolute;inset:0;background:rgba(12,12,14,0);transition:.3s}
+.ig-grid a:hover::after{background:rgba(12,12,14,.4)}
+.ig-grid a svg{position:absolute;top:50%;left:50%;width:30px;height:30px;transform:translate(-50%,-50%) scale(.6);opacity:0;fill:#fff;transition:.3s;z-index:2}
+.ig-grid a:hover svg{opacity:1;transform:translate(-50%,-50%) scale(1)}
+
+/* diferenciais */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.grid3{grid-template-columns:1fr}}
+.dif{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:38px 30px;transition:.35s}
+.dif:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(42,39,32,.08);border-color:var(--acc)}
+.dif .no{font-family:var(--serif);font-size:24px;color:var(--acc);font-style:italic}
+.dif h3{font-family:var(--serif);font-size:26px;color:var(--ink);font-weight:600;margin:12px 0 10px}
+.dif p{color:var(--mut);font-size:15px}
+
+/* tipologias */
+.tips{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.tip{flex:1;min-width:190px;border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:var(--panel);transition:.35s}
+.tip:hover{border-color:var(--acc);transform:translateY(-5px);box-shadow:0 16px 34px rgba(42,39,32,.07)}
+.tip .t{color:var(--acc);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.tip .m{font-family:var(--serif);font-size:34px;color:var(--ink);font-weight:600;margin:8px 0 4px}
+.tip .m small{font-size:15px;color:var(--mut)}
+.tip p{color:var(--mut);font-size:14px}
+
+/* carrossel de plantas */
+.carousel{margin-top:44px}
+.stage{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.stage .frame{position:relative;height:min(72vh,620px);background:#fbfaf6;display:flex;align-items:center;justify-content:center}
+.stage .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:18px;opacity:0;transition:opacity .5s}
+.stage .frame img.on{opacity:1}
+.stage .frame .ph{position:absolute;inset:0}
+.cap{position:absolute;left:26px;bottom:22px;background:rgba(33,31,26,.82);color:#fff;padding:12px 20px;border-radius:14px;backdrop-filter:blur(4px)}
+.cap .t{color:var(--acc2);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.cap .m{font-family:var(--serif);font-size:22px}
+.cbtn{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.9);color:var(--ink);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s;z-index:2}
+.cbtn:hover{background:var(--acc);color:#fff;border-color:var(--acc)}
+.cbtn.prev{left:18px}.cbtn.next{right:18px}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:20px;flex-wrap:wrap}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:.2s}
+.dots i.on{background:var(--acc);transform:scale(1.35)}
+
+/* lazer (icones) */
+.amen{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+@media(max-width:860px){.amen{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.amen{grid-template-columns:1fr}}
+.am{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 20px;transition:.3s}
+.am:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 12px 26px rgba(42,39,32,.06)}
+.am svg{width:26px;height:26px;stroke:var(--acc);fill:none;stroke-width:1.5;flex:0 0 26px}
+.am span{font-size:15px;color:var(--ink);font-weight:500}
+
+/* galeria em mosaico + abas */
+.gtabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.gtab{padding:11px 22px;border:1px solid var(--lineD);border-radius:999px;background:transparent;color:#cfc7ba;font-family:var(--sans);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:.3s}
+.gtab:hover{border-color:var(--acc2);color:#fff}
+.gtab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.mgal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px;margin-top:34px}
+@media(max-width:820px){.mgal{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}}
+.mg{position:relative;overflow:hidden;border-radius:16px;cursor:pointer;background:var(--dark2);opacity:0;transform:scale(.96);transition:opacity .55s cubic-bezier(.16,.8,.3,1),transform .55s cubic-bezier(.16,.8,.3,1)}
+.mg.show{opacity:1;transform:none}
+.mg.hide{display:none}
+.mg img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.mg:hover img{transform:scale(1.08)}
+.mg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),transparent 55%);opacity:0;transition:.3s}
+.mg:hover::after{opacity:1}
+.mg.big{grid-column:span 2;grid-row:span 2}
+.mg.wide{grid-column:span 2}
+.lb{position:fixed;inset:0;z-index:12000;background:rgba(15,14,12,.95);display:none;align-items:center;justify-content:center;padding:40px}
+.lb.on{display:flex}
+.lb .x{position:absolute;top:22px;right:32px;color:#fff;font-size:34px;cursor:pointer;line-height:1}
+
+/* localização */
+.mapbox{margin-top:34px;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.mapbox .ph,.mapbox iframe{width:100%;height:420px;border:0;display:block}
+.poi{list-style:none;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.poi{grid-template-columns:1fr}}
+.poi li{color:var(--ink);font-size:16px;font-weight:400;display:flex;gap:14px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
+.poi li b{color:var(--acc);font-weight:700;font-size:13px;letter-spacing:1px;min-width:80px}
+
+/* obra */
+.obra{display:grid;gap:22px;margin-top:38px;max-width:780px}
+.obra .row .top{display:flex;justify-content:space-between;color:var(--ink);font-weight:600;margin-bottom:10px;font-size:15px}
+.obra .row .top .p{color:var(--acc);font-family:var(--serif);font-size:22px}
+.obra .row .bar{height:8px;background:var(--alt);border-radius:20px;overflow:hidden}
+.obra .row .bar span{display:block;height:100%;width:0;border-radius:20px;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width 1.5s cubic-bezier(.16,.8,.3,1)}
+
+/* quem constroi */
+.builder{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+@media(max-width:860px){.builder{grid-template-columns:1fr;gap:30px}}
+.mini{display:flex;gap:34px;margin-top:26px;flex-wrap:wrap}
+.mini .m .n{font-family:var(--serif);font-size:42px;color:var(--acc);line-height:1}
+.mini .m .l{color:var(--mut);font-size:13px;margin-top:4px}
+
+/* form (dark band) */
+.form{max-width:640px;margin:34px auto 0;display:grid;gap:16px}
+.form .r2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.form .r2{grid-template-columns:1fr}}
+.form input,.form select,.form textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--lineD);color:#fff;padding:15px 18px;font-family:inherit;font-size:15px;border-radius:12px}
+.form input::placeholder,.form textarea::placeholder{color:#a49c8f}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--acc2)}
+.form select{color:#cfc7ba}.form option{color:#211f1a}
+
+/* WhatsApp float */
+.wa{position:fixed;bottom:26px;right:26px;z-index:9000;display:flex;align-items:center;gap:11px;background:#25D366;color:#fff;padding:15px 24px 15px 18px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14.5px;letter-spacing:.3px;box-shadow:0 12px 30px rgba(0,0,0,.28);transition:.3s;animation:wapulse 2.6s ease-out infinite}
+.wa:hover{transform:translateY(-3px) scale(1.03);background:#20c05c;box-shadow:0 18px 40px rgba(37,211,102,.4);animation:none}
+.wa svg{width:26px;height:26px;fill:#fff}
+@keyframes wapulse{0%{box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 12px 30px rgba(0,0,0,.28),0 0 0 0 rgba(37,211,102,0)}}
+@media(max-width:560px){.wa span{display:none}.wa{padding:17px;border-radius:50%}}
+
+footer{padding:60px 0;text-align:center}
+footer .elogo{font-size:20px;margin-bottom:16px}
+footer .ms{color:var(--acc2);font-size:13px;margin-bottom:14px}
+footer .disc{color:#8f887c;font-size:12px;max-width:80ch;margin:0 auto;line-height:1.6}
+.credit-band{background:#ffffff;padding:20px 44px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.credit-band .goco-logo{height:22px;width:auto;flex:0 0 auto;opacity:.92}
+.credit-band .cb-mid{flex:1;text-align:center;color:#7a7367;font-size:11px;letter-spacing:.3px;line-height:1.5;max-width:70ch;margin:0 auto}
+.credit-band .cb-mid b{color:#5f5344;font-weight:600}
+.credit-band .goco-link{flex:0 0 auto;color:#9c7743;font-weight:700;font-size:11px;letter-spacing:.5px;text-decoration:none;white-space:nowrap;transition:.25s}
+.credit-band .goco-link:hover{color:#5f5344}
+@media(max-width:820px){.credit-band{flex-direction:column;text-align:center;gap:14px;padding:26px 24px}.credit-band .cb-mid{text-align:center}}
+
+@media(max-width:900px){
+ section{padding:82px 0}
+ .burg{display:block}
+ .links{position:fixed;top:0;right:-100%;height:100vh;width:80%;max-width:340px;flex-direction:column;align-items:flex-start;justify-content:center;gap:26px;padding:40px;background:var(--panel);transition:.4s;z-index:9998}
+ .links.open{right:0}.links a{font-size:16px;color:var(--ink)!important}
+}
+</style>
+</head>
+<body>
+<div class="prog" id="prog"></div>
+
+<nav class="nav top" id="nav"><div class="wrap in">
+  <a class="elogo light" href="#top"><span class="r">Residencial</span><span class="w">EIN<span class="st">ST</span>EIN</span></a>
+  <button class="burg" onclick="document.getElementById('lk').classList.toggle('open')">&#9776;</button>
+  <div class="links" id="lk" onclick="this.classList.remove('open')">
+    <a href="#sobre">Sobre</a>
+    <a href="#video">Vídeo</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#plantas">Plantas</a>
+    <a href="#lazer">Lazer</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#local">Localização</a>
+    <a href="#interesse" class="cta">Tenho interesse</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="bg">
+    <div class="ph" style="position:absolute;inset:0">[ fachada ]</div>
+    <img src="https://drive.google.com/thumbnail?id=1lg4PhXzQdqkJGql3dBdYK52rzV19pS08&sz=w1920" alt="Fachada Residencial Einstein" onerror="this.remove()">
+  </div>
+  <div class="wrap in">
+    <div class="eyebrow">Santa Maria · RS · Bairro N. Sra. do Rosário</div>
+    <h1 class="serif">Uma nova<br>fórmula de <em>morar</em>.</h1>
+    <p class="slogan">Onde o conhecimento pulsa. Arquitetura autoral, unidades amplas e um endereço no coração do eixo acadêmico de Santa Maria — assinatura MS Incorporações.</p>
+    <div class="actions">
+      <a href="#interesse" class="btn solid">Tenho interesse</a>
+      <a href="#sobre" class="btn line">Conhecer o projeto</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="mouse"></div><span>Role</span></div>
+</header>
+
+<div class="stats"><div class="wrap in">
+  <div class="s"><div class="n" data-count="99">0</div><div class="l">Apartamentos</div></div>
+  <div class="s"><div class="n" data-count="15">0</div><div class="l">Pavimentos</div></div>
+  <div class="s"><div class="n" data-count="121">0</div><div class="l">Vagas de garagem</div></div>
+  <div class="s"><div class="n">1–3</div><div class="l">Dormitórios</div></div>
+</div></div>
+
+<section class="concept dark"><div class="wrap rv">
+  <div class="tag" style="display:inline-block">O conceito</div>
+  <p class="big">Inspirado pela genialidade que mudou a forma como enxergamos o <b>tempo</b> e o <b>espaço</b>. Aqui, seu lar se torna fonte de inspiração.</p>
+</div></section>
+
+<section id="sobre"><div class="wrap split">
+  <div class="rv">
+    <div class="tag">O empreendimento</div>
+    <h2 class="serif">Perenidade, no coração de um eixo <em>em expansão</em>.</h2>
+    <p class="lead">Assim como as descobertas de Albert Einstein atravessam gerações, o Residencial Einstein nasce para permanecer. Uso misto, arquitetura autoral e áreas comuns entregues mobiliadas e decoradas — no Bairro Nossa Senhora do Rosário, com acesso pela Rua do Rosário, 335, e também pela Rua Conde de Porto Alegre. Um endereço rodeado por universidades, comércio e serviços.</p>
+  </div>
+  <div class="rv d1">
+    <div class="ficha">
+      <div class="f"><div class="k">Incorporadora</div><div class="v">MS Incorporações</div></div>
+      <div class="f"><div class="k">Arquitetura</div><div class="v">Guilherme Isbrecht</div></div>
+      <div class="f"><div class="k">Paisagismo</div><div class="v">Thamila Brum Studio</div></div>
+      <div class="f"><div class="k">Projeto estrutural</div><div class="v">Ronaldo Segala</div></div>
+      <div class="f"><div class="k">Estrutura</div><div class="v">15 pavimentos · 99 apts</div></div>
+      <div class="f"><div class="k">Localização</div><div class="v">Rua do Rosário, 335 · SM/RS</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="video" class="dark"><div class="wrap" style="text-align:center">
+  <div class="rv"><div class="tag" style="display:inline-block">Vídeo</div><h2 class="serif">Conheça o Einstein <em>em movimento</em>.</h2>
+  <p class="lead" style="margin:22px auto 0">Um passeio pelo empreendimento, da fachada às áreas comuns.</p></div>
+  <div class="videowrap rv d1">
+    <iframe src="https://www.youtube.com/embed/TCZTPoFPJWA?rel=0&playsinline=1&modestbranding=1" title="Vídeo Residencial Einstein" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+  </div>
+</div></section>
+
+<section id="diferenciais" class="alt"><div class="wrap">
+  <div class="rv"><div class="tag">Diferenciais</div><h2 class="serif">Detalhes que fazem a <em>diferença</em>.</h2></div>
+  <div class="grid3 rv d1" style="margin-top:44px">
+    <div class="dif"><div class="no">01</div><h3>Arquitetura autoral</h3><p>Projeto atemporal e funcional assinado por Guilherme Isbrecht, com paisagismo do Thamila Brum Studio.</p></div>
+    <div class="dif"><div class="no">02</div><h3>Unidades amplas</h3><p>Na contramão do mercado, apartamentos generosos de 1 a 3 dormitórios — espaço de verdade para viver.</p></div>
+    <div class="dif"><div class="no">03</div><h3>Eixo acadêmico</h3><p>No coração de uma região universitária em expansão: liquidez, valorização e vida urbana ativa.</p></div>
+    <div class="dif"><div class="no">04</div><h3>Áreas comuns prontas</h3><p>Todas as áreas de uso comum entregues mobiliadas, equipadas e decoradas. É só chegar e viver.</p></div>
+    <div class="dif"><div class="no">05</div><h3>Eficiência</h3><p>Placas solares e gerador para as áreas comuns — mais conforto e um custo de condomínio enxuto.</p></div>
+    <div class="dif"><div class="no">06</div><h3>Uso misto</h3><p>Salas comerciais no térreo com acesso independente, somando conveniência ao endereço.</p></div>
+  </div>
+</div></section>
+
+<section id="plantas"><div class="wrap">
+  <div class="rv"><div class="tag">Plantas e tipologias</div><h2 class="serif">Uma opção para cada <em>objetivo</em>.</h2></div>
+  <div class="tips rv d1">
+    <div class="tip"><div class="t">1 dormitório</div><div class="m">64–78<small> m²</small></div><p>Amplos, alguns com suíte.</p></div>
+    <div class="tip"><div class="t">2 dorm · suíte</div><div class="m">88–89<small> m²</small></div><p>Com varanda gourmet.</p></div>
+    <div class="tip"><div class="t">3 dorm · suíte</div><div class="m">122,9<small> m²</small></div><p>Plantas generosas.</p></div>
+    <div class="tip"><div class="t">3 dorm · 2 suítes</div><div class="m">153<small> m²</small></div><p>Unidades combinadas.</p></div>
+  </div>
+
+  <div class="carousel rv d1">
+    <div class="stage">
+      <div class="frame" id="frame">
+        <div class="ph">[ planta ]</div>
+        <!-- imagens injetadas por JS -->
+      </div>
+      <button class="cbtn prev" onclick="plantMove(-1)" aria-label="Anterior">&#8249;</button>
+      <button class="cbtn next" onclick="plantMove(1)" aria-label="Próxima">&#8250;</button>
+      <div class="cap"><div class="t" id="capT">Final 1</div><div class="m serif" id="capM">3 dorm · 122,9 m²</div></div>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+</div></section>
+
+<section id="lazer" class="alt"><div class="wrap" style="text-align:center">
+  <div class="rv"><div class="tag" style="display:inline-block">Lazer e áreas comuns</div><h2 class="serif">Estrutura completa, <em>sem sair de casa</em>.</h2>
+  <p class="lead" style="margin:22px auto 0">Todas as áreas de uso comum entregues mobiliadas, equipadas e decoradas.</p></div>
+  <div class="amen rv d1" style="text-align:left">
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M7 3v6a5 5 0 0 0 10 0V3M12 14v7M8 21h8"/></svg><span>Salão de festas p/ 80</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M6 3v8M6 11a2 2 0 0 0 2-2V3M4 3v6M18 3c-2 0-3 3-3 6h3v12"/></svg><span>Espaço gourmet</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M4 9v6M20 9v6M4 12h16M7 7v10M17 7v10"/></svg><span>Fitness equipado</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v16M4 21h15M9 12h1"/></svg><span>Hall assinado</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M12 22V12M12 12l-4-4M12 12l4-3M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/></svg><span>Praça exclusiva</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M12 22V9M12 9c0-4 3-6 3-6M12 9c0-4-3-6-3-6M12 13c3 0 5-2 6-5M12 13c-3 0-5-2-6-5"/></svg><span>Jardins e áreas verdes</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M6 20a6 6 0 0 1 12 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM8 8h.01M16 8h.01"/></svg><span>Espaço Kids</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M5 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM9 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM7 16c0-3 2-4 5-4s5 1 5 4-2 3-5 3-5 0-5-3Z"/></svg><span>Espaço Pet</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M4 4h2l2 12h9l2-8H7M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM17 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg><span>Mercado autônomo</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M4 21V10l8-6 8 6v11M9 21v-6h6v6"/></svg><span>Rooftop</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M5.5 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM18.5 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8 14l3-5h4l2 3M11 9l2-3h3"/></svg><span>Bicicletário</span></div>
+    <div class="am"><svg viewBox="0 0 24 24"><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg><span>Placas solares + gerador</span></div>
+  </div>
+</div></section>
+
+<section id="galeria" class="dark"><div class="wrap">
+  <div class="rv" style="text-align:center"><div class="tag" style="display:inline-block">Galeria</div><h2 class="serif">O projeto em <em>imagens</em>.</h2>
+  <p class="lead" style="margin:22px auto 0">Explore a fachada, as áreas comuns e os apartamentos decorados. Clique para ampliar.</p>
+  <div class="gtabs">
+    <button class="gtab on" data-f="fachada">Fachada &amp; áreas comuns</button>
+    <button class="gtab" data-f="d1">Apto 1 dormitório</button>
+    <button class="gtab" data-f="d2">Apto 2 dormitórios</button>
+  </div></div>
+  <div class="mgal rv d1" id="mgal">
+    <div class="mg big" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=1lg4PhXzQdqkJGql3dBdYK52rzV19pS08&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=11ZNT0mOCErGQgo8T6TnszN76vtppjh33&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=1hA52OMIDScwpdCPMq_YiPCuDRCxHayJt&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=1o6jisf8C9b722U5acj3F9lqR0MeYoRUg&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=1kjZ-OaNRAmz5OTz0EtaGAIwHt2Vh4RgH&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg wide" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=1zOobHEOPFip2JD6OynMKpGFiNFPwuNMI&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=1Y61zYrHXm7GBo5r05CNC1Me-d8PO3ixK&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=1MC5OW2tpWNhBhHsScXl1kgYzDZ3uM3HH&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=1rYPc9g2a_TSf15tCuEc_evAN4fK7mxH0&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=117cG18W5wYo1jYnjEgirG-t8-fH6Hpt8&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="fachada"><img src="https://drive.google.com/thumbnail?id=1jyNq-7EW3H5FZi5DrmjxVdA9U5RYUcVR&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg big" data-cat="d1"><img src="https://drive.google.com/thumbnail?id=1KPCJ3q75CszfjTIgpgEu8LP96MSL7K3j&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d1"><img src="https://drive.google.com/thumbnail?id=1mQL9G3zhOp6I4ItXEIbnjTmWJeAoEIGZ&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d1"><img src="https://drive.google.com/thumbnail?id=154Tp8Pfzrt5-UepWe2e2bwXjbU0qzsPB&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d1"><img src="https://drive.google.com/thumbnail?id=1oT0dM9_knbqBwfGOv6-2ccYa-InGkBO8&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d1"><img src="https://drive.google.com/thumbnail?id=15vHx4ye_JDb01o979XPBnyhCGRhR11vx&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg wide" data-cat="d1"><img src="https://drive.google.com/thumbnail?id=1kjhOQjzSvi6FzKqLyXGxu0e0b7Lf4YDp&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d1"><img src="https://drive.google.com/thumbnail?id=1ELgq_r47-UwebgwbFktC2cFS-s2EIvBT&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d1"><img src="https://drive.google.com/thumbnail?id=1sjz_3NTwFpFHj-mO36J_YkwbP_kDwmFs&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg big" data-cat="d2"><img src="https://drive.google.com/thumbnail?id=1zjR8bQXdHWfymt7UwJzR-GHBXZy6Rmsy&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d2"><img src="https://drive.google.com/thumbnail?id=1ab0jO4bDY9S4M793QAioYGkiFXXJOtil&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d2"><img src="https://drive.google.com/thumbnail?id=100zprc_q7TR1XoojIfTdYs5IPQoNbqUv&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d2"><img src="https://drive.google.com/thumbnail?id=18LTKheAmdBWWNC3N7_ed864xdjenIdkC&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d2"><img src="https://drive.google.com/thumbnail?id=16_Q4JYnR4sR60R9MYzbhpLco7ab-1diP&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg wide" data-cat="d2"><img src="https://drive.google.com/thumbnail?id=1dyEx9X1Jv8TfYIUUNfQzRGA2yLfCzgjq&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d2"><img src="https://drive.google.com/thumbnail?id=1fvYp7fjNpth71GGXwIlR13yTIRbG0-dA&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+    <div class="mg" data-cat="d2"><img src="https://drive.google.com/thumbnail?id=10EpeLTlivH4e481znkG3PgBspX2MukKm&sz=w1000" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+  </div>
+</div></section>
+
+<section id="local"><div class="wrap">
+  <div class="rv"><div class="tag">Localização</div><h2 class="serif">No centro do <em>conhecimento</em>.</h2>
+  <p class="lead">Rua do Rosário, 335 — Bairro Nossa Senhora do Rosário, com acesso secundário pela Rua Conde de Porto Alegre. Universidades, comércio, gastronomia e serviços a poucos passos.</p></div>
+  <ul class="poi rv d1">
+    <li><b>Ensino</b> Universidades e faculdades do eixo acadêmico</li>
+    <li><b>Compras</b> Supermercados e comércio do centro</li>
+    <li><b>Cultura</b> Igreja do Rosário e Museu Treze de Maio</li>
+    <li><b>Lazer</b> Gastronomia, cafés e serviços no entorno</li>
+  </ul>
+  <div class="mapbox rv d1"><iframe src="https://maps.google.com/maps?q=-29.683878,-53.814857&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Residencial Einstein"></iframe></div>
+</div></section>
+
+<section id="obra" class="alt"><div class="wrap">
+  <div class="rv"><div class="tag">Andamento da obra</div><h2 class="serif">Em construção, <em>fase avançada</em>.</h2></div>
+  <div class="obra rv d1">
+    <div class="row"><div class="top"><span>Fundação e estrutura</span><span class="p">100%</span></div><div class="bar"><span data-w="100"></span></div></div>
+    <div class="row"><div class="top"><span>Alvenaria</span><span class="p">90%</span></div><div class="bar"><span data-w="90"></span></div></div>
+    <div class="row"><div class="top"><span>Instalações</span><span class="p">80%</span></div><div class="bar"><span data-w="80"></span></div></div>
+    <div class="row"><div class="top"><span>Acabamentos</span><span class="p">70%</span></div><div class="bar"><span data-w="70"></span></div></div>
+  </div>
+</div></section>
+
+<section id="assina"><div class="wrap builder">
+  <div class="rv">
+    <div class="tag">Quem constrói</div>
+    <h2 class="serif">MS Incorporações.</h2>
+    <p class="lead">Desde 2005, em Santa Maria, a MS Incorporações edifica conforto e alto padrão. Fundada por Giovani Moro, construiu ao longo de duas décadas uma reputação de qualidade, durabilidade e valorização — entregando o que promete.</p>
+    <div class="mini">
+      <div class="m"><div class="n">2005</div><div class="l">Fundação</div></div>
+      <div class="m"><div class="n">+6</div><div class="l">Empreendimentos</div></div>
+      <div class="m"><div class="n">20</div><div class="l">Anos de história</div></div>
+    </div>
+  </div>
+  <div class="rv d1">
+    <div class="ficha">
+      <div class="f"><div class="k">Arquitetura</div><div class="v serif" style="font-size:20px">Guilherme Isbrecht</div></div>
+      <div class="f"><div class="k">Paisagismo</div><div class="v serif" style="font-size:20px">Thamila Brum Studio</div></div>
+      <div class="f"><div class="k">Estrutural</div><div class="v serif" style="font-size:20px">Ronaldo Segala</div></div>
+      <div class="f"><div class="k">Incorporação</div><div class="v serif" style="font-size:20px">MS Incorporações</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="social" class="alt"><div class="wrap" style="text-align:center">
+  <div class="rv"><div class="tag" style="display:inline-block">Nas redes</div><h2 class="serif">Acompanhe o <em>Einstein</em> no Instagram.</h2>
+  <p class="lead" style="margin:22px auto 0">Bastidores da obra, novidades e o dia a dia do empreendimento.</p></div>
+  <div class="ig-wrap rv d1"><behold-widget feed-id="O2dgJwTnMNMFzz3pdLsd"></behold-widget></div>
+  <a class="ig-follow rv d1" href="https://instagram.com/msincorporacoes" target="_blank" rel="noopener">Seguir @msincorporacoes</a>
+</div></section>
+
+<section id="interesse" class="dark"><div class="wrap" style="text-align:center">
+  <div class="rv"><div class="tag" style="display:inline-block">Tenho interesse</div>
+  <h2 class="serif">Receba o material completo do <em>Einstein</em>.</h2>
+  <p class="lead" style="margin:22px auto 0">Preencha e envie — você fala com um consultor na hora, pelo WhatsApp.</p></div>
+  <form class="form rv d1" onsubmit="waSubmit(event)">
+    <div class="r2"><input id="f-nome" type="text" placeholder="Nome completo" required><input id="f-tel" type="tel" placeholder="Telefone / WhatsApp" required></div>
+    <input id="f-mail" type="email" placeholder="E-mail">
+    <select id="f-tipo"><option value="">Tipologia de interesse…</option><option>1 dormitório</option><option>2 dormitórios</option><option>3 dormitórios</option><option>Sala comercial</option></select>
+    <textarea id="f-msg" rows="3" placeholder="Mensagem (opcional)"></textarea>
+    <button type="submit" class="btn solid" style="width:100%;justify-content:center">Falar no WhatsApp</button>
+  </form>
+</div></section>
+
+<footer class="dark"><div class="wrap">
+  <a class="elogo light" href="#top"><span class="r">Residencial</span><span class="w">EIN<span class="st">ST</span>EIN</span></a>
+  <div class="ms">Uma realização MS Incorporações · Santa Maria/RS</div>
+  <div class="disc">Rua do Rosário, 335 — Bairro N. Sra. do Rosário — Santa Maria/RS. Imagens meramente ilustrativas; podem sofrer alterações sem aviso prévio. Material informativo, sem caráter de oferta ou proposta comercial.</div>
+</div></footer>
+<div class="credit-band">
+  <img class="goco-logo" src="https://drive.google.com/thumbnail?id=1CKtOddtVVZGF_KxuKmh9TpCfgq8MDmZy&sz=w800" alt="GO Company 360" onerror="this.style.display='none'">
+  <div class="cb-mid">Este empreendimento e este site foram desenvolvidos pela <b>GO Company</b> — inteligência, marketing e gestão no mercado imobiliário.</div>
+  <a class="goco-link" href="https://gocompany360.com.br" target="_blank" rel="noopener">gocompany360.com.br &rarr;</a>
+</div>
+
+<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.26-.1-.45-.15-.64.15-.2.3-.74.94-.9 1.13-.17.2-.33.22-.62.08-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.5.16-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.2 0-.5.07-.76.37-.26.3-1 .98-1 2.38s1.02 2.76 1.17 2.95c.15.2 2.02 3.08 4.9 4.32.68.3 1.22.47 1.63.6.68.22 1.3.19 1.8.11.55-.08 1.7-.7 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34ZM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.15-.43-4.5-1.24l-.32-.19-2.85.9.9-2.78-.2-.33A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+  <span>Fale conosco</span>
+</a>
+
+<div class="lb" id="lb" onclick="this.classList.remove('on')"><span class="x">&times;</span><div id="lbInner"></div></div>
+
+<script>
+var WNUM='5555996056881'; /* WhatsApp oficial (55 + DDD 55 + 99605-6881) */
+
+function id(x){return document.getElementById(x);}
+// float link
+id('waFloat').href='https://wa.me/'+WNUM+'?text='+encodeURIComponent('Olá! Vim pelo site do Residencial Einstein e gostaria de mais informações.');
+
+function waSubmit(e){e.preventDefault();
+  var n=id('f-nome').value,t=id('f-tel').value,em=id('f-mail').value,tp=id('f-tipo').value,ms=id('f-msg').value;
+  var msg='Olá! Tenho interesse no Residencial Einstein.\n\nNome: '+n+'\nTelefone: '+t+(em?('\nE-mail: '+em):'')+(tp?('\nTipologia: '+tp):'')+(ms?('\nMensagem: '+ms):'');
+  window.open('https://wa.me/'+WNUM+'?text='+encodeURIComponent(msg),'_blank');
+}
+
+// nav shrink + progress
+var nav=id('nav'),prog=id('prog');
+addEventListener('scroll',function(){
+  var st=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(h>0?st/h*100:0)+'%';
+  if(st>60){nav.classList.add('small');nav.classList.remove('top');}else{nav.classList.remove('small');nav.classList.add('top');}
+},{passive:true});
+
+// reveal + counters + bars
+function countUp(el){var to=parseFloat(el.dataset.count),t0=performance.now();
+  (function t(n){var p=Math.min(1,(n-t0)/1200);p=1-Math.pow(1-p,3);
+   el.textContent=Math.round(to*p).toLocaleString('pt-BR');if(p<1)requestAnimationFrame(t);})(t0);}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(countUp);
+  e.target.querySelectorAll('.bar span[data-w]').forEach(function(s){s.style.width=s.dataset.w+'%';});
+  io.unobserve(e.target);}});},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+document.querySelectorAll('.stats .s').forEach(function(el){io.observe(el);});
+
+// carrossel de plantas
+var plants=[
+ '1qfOkf4aoXZfMl1CEm-MD1-_LgT5A7QAH','1GCPakaE0HcgJ7s8kmhcCfwxLpV_0g8dS',
+ '1XkZaJqHOOzce9StIa2n1Ee0XngAPuHNQ','1EmrVDmMqaDkYp9sBAyNBxChefIcZ1K8k',
+ '1kHBEiJG4qtNrje2Wz__2FLjXHrtDYZkB','1nR98VIqgDgPLiddPpn15vpCj6AR1Juul',
+ '1ZDZdPQsaWtcOno_-iPVVXL9Vgxgs58f2','1r0BN-gErjMOdOy6uyB-mvKRms00uMsu1',
+ '12Jaf5u8rPaDe6leSj7KLSw3yTzYv5ar_','1i5JiiTDgIWI76Sf_LfntYoBL8_-equQB'
+];
+var pIdx=0,frame=id('frame'),dots=id('dots');
+plants.forEach(function(gid,i){
+  var im=document.createElement('img');im.src='https://drive.google.com/thumbnail?id='+gid+'&sz=w1600';im.alt='Planta '+(i+1);im.dataset.i=i;
+  im.onerror=function(){this.style.display='none';};frame.appendChild(im);
+  var d=document.createElement('i');d.onclick=function(){plantGo(i);};dots.appendChild(d);
+});
+function plantGo(i){pIdx=(i+plants.length)%plants.length;
+  frame.querySelectorAll('img').forEach(function(im){im.classList.toggle('on',+im.dataset.i===pIdx);});
+  dots.querySelectorAll('i').forEach(function(d,k){d.classList.toggle('on',k===pIdx);});
+  id('capT').textContent='Planta';id('capM').textContent=(pIdx+1)+' de '+plants.length;}
+function plantMove(d){plantGo(pIdx+d);}
+plantGo(0);
+
+// lightbox
+var lb=id('lb'),lbInner=id('lbInner');
+document.querySelectorAll('#mgal .mg').forEach(function(box){box.addEventListener('click',function(){
+  var img=box.querySelector('img');lbInner.innerHTML='';
+  if(img){var c=img.cloneNode();c.style.cssText='max-width:92vw;max-height:88vh;object-fit:contain;border-radius:10px';lbInner.appendChild(c);}
+  else{var dv=document.createElement('div');dv.className='ph';dv.style.cssText='width:80vw;height:70vh;border-radius:12px';dv.textContent='[ imagem ]';lbInner.appendChild(dv);}
+  lb.classList.add('on');});});
+
+// galeria: filtro por categoria
+(function(){var tabs=document.querySelectorAll('.gtab'),its=document.querySelectorAll('#mgal .mg');
+function filter(f){its.forEach(function(it){var m=it.dataset.cat===f;it.classList.toggle('hide',!m);if(m){it.classList.remove('show');requestAnimationFrame(function(){it.classList.add('show');});}});}
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.remove('on');});t.classList.add('on');filter(t.dataset.f);});});
+filter('fachada');})();
+
+// navegacao ancorada com scroll suave e offset do menu fixo
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
+  var h=this.getAttribute('href'); if(!h||h.length<2)return;
+  var el=document.querySelector(h); if(!el)return;
+  e.preventDefault();
+  var y=el.getBoundingClientRect().top+window.scrollY-46;
+  window.scrollTo({top:y,behavior:'smooth'});
+  var lk=document.getElementById('lk'); if(lk)lk.classList.remove('open');
+});});
+
+
+</script>
+<script>(()=>{if(window.__bhldScript)return;window.__bhldScript=true;const d=document,s=d.createElement("script");s.type="module";s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);})();</script>
+</body>
+</html>
