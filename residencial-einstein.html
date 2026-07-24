@@ -553,6 +553,17 @@ function filter(f){its.forEach(function(it){var m=it.dataset.cat===f;it.classLis
 tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.remove('on');});t.classList.add('on');filter(t.dataset.f);});});
 filter('fachada');})();
 
+// navegacao ancorada com scroll suave e offset do menu fixo
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
+  var h=this.getAttribute('href'); if(!h||h.length<2)return;
+  var el=document.querySelector(h); if(!el)return;
+  e.preventDefault();
+  var y=el.getBoundingClientRect().top+window.scrollY-46;
+  window.scrollTo({top:y,behavior:'smooth'});
+  var lk=document.getElementById('lk'); if(lk)lk.classList.remove('open');
+});});
+
+
 </script>
 <script>(()=>{if(window.__bhldScript)return;window.__bhldScript=true;const d=document,s=d.createElement("script");s.type="module";s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);})();</script>
 </body>
